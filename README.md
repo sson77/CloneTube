@@ -7,7 +7,7 @@
   <h1>CloneTube 1차 프로젝트</h1>
   <section>
     <h2>📌프로젝트 소개</h2>
-    <li> 웹 사이트 : https://sson.dothome.co.kr/dev/First_Project/youtube_list.html </li>
+    <li> 웹 사이트 구축 : <a href="https://sson.dothome.co.kr/dev/First_Project/youtube_list.html" target="_blank"> 1차 프론트앤드 프로젝트 바로보기 </li> <br/>
     <li> 프로젝트 소개는 문서 작성 중 입니다..✍️ </li> 
   </section><br/>
   
@@ -29,9 +29,9 @@
   <section>
     <h2>📁 프로젝트 구조</h2>
     <ul>
-      <li><code>📁 youtube_list.html/</code>: 메인(리스트) 페이지</li>  
-      <li><code>📁 subscribe.html/</code>: 구독 페이지</li>       
-      <li><code>📁 youtube_view.html/</code>: 상세 페이지</li>     
+      <li><code>📁 youtube_list.html</code>: 메인(리스트) 페이지</li>  
+      <li><code>📁 subscribe.html</code>: 구독 페이지</li>       
+      <li><code>📁 youtube_view.html</code>: 상세 페이지</li>     
       <li><code>📁 img/</code>: 이미지 파일</li>
       <li><code>📁 css/</code>: Bootstrap 스타일시트</li>
       <li><code>📁 js/</code>: JavaScript 파일</li>
