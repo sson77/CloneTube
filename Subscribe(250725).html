@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Clone</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Material Icons 불러오기 -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark px-3">
+  <button class="btn text-white" type="button">
+    <i class="bi bi-list" style="font-size: 1.5rem;"></i>
+  </button>
+  <a class="navbar-brand" href="#" onclick="location.reload(); return false;">
+    <span class="logo-text ms-3"><i class="bi bi-youtube text-danger"></i> YouTube</span>
+  </a>
+  <form class="d-flex mx-auto" style="width: 40%;">
+    <input class="form-control search-bar rounded-start-pill" type="search" placeholder="검색" aria-label="Search">
+    <button class="btn btn-icon rounded-end-pill"><i class="bi bi-search"></i></button>
+    <button class="btn btn-icon rounded-circle"><i class="bi bi-mic-fill"></i></button>
+  </form>
+  <div class="d-flex align-items-center">
+    <button class="btn btn-icon rounded-pill"><i class="bi bi-plus"></i> 만들기</button>
+    <button class="btn btn-icon"><i class="bi bi-bell"></i></button>
+    <div class="profile-circle ms-2">산</div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2 sidebar">
+      <a href="youtube_list.html">홈</a>
+      <a href="#">Shorts</a>
+      <a href="Subscribe.html">구독</a>
+      <a href="#">YouTube Music</a>
+      <hr>
+      <h6>내 페이지 ></h6>
+      <a href="#">시청 기록</a>
+      <a href="#">재생목록</a>
+      <a href="#">내 영상</a>
+      <a href="#">내 영화</a>
+      <a href="#">나중에 본 동영상</a>
+      <a href="#">좋아요 표시한 동영상</a>
+      <a href="#">오프라인 저장 동영상</a>
+      <hr>
+      <h6>구독</h6>
+      <a href="#">Diggle</a>
+      <a href="#">SBS 뉴스</a>
+    </div>
+    <!-- Main Content -->
+    <div class="col-md-10 p-4">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Video 1 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/bn9nhe7w9xc?si=T8s_Er_8-6cB7BgP" title="한국인이 구글에서 승진을 못하는 이유">
+              <img src="img/sub_img.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/bn9nhe7w9xc?si=T8s_Er_8-6cB7BgP" title="한국인이 구글에서 승진을 못하는 이유">한국인이 구글에서 승진을 못하는
+                이유</a>
+            </div>
+            <div class="bottom-bar">
+              <strong>지식인사이드</strong> <br/> 조회수 23만회 ・ 1년 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 2 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/7olPX1lS7NQ?si=ngd6ooMQJgS9IJdD">
+              <img src="img/sub_img2.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/7olPX1lS7NQ?si=ngd6ooMQJgS9IJdD" title="의외로 많이 당한다는 가스라이팅 수법">의외로 많이 당한다는 가스라이팅
+                수법
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>EST</strong> <br/> 조회수 15만회 ・ 7개월 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 3 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/OjJf77CteT8?si=Pn2uNk7TtHz7H2hl">
+              <img src="img/sub_img3.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/OjJf77CteT8?si=Pn2uNk7TtHz7H2hl" title="진짜 성격은 얼굴에 드러납니다.">진짜 성격은 얼굴에 드러납니다.
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>EO Korea</strong> <br/> 조회수 12만회 ・ 21일 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 4 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/T1Yggs0hS70?si=DzP2x3-JQkQKwiXT">
+              <img src="img/sub_img4.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/T1Yggs0hS70?si=DzP2x3-JQkQKwiXT" title="14년 차 개발자가 밝히는 억대연봉과 AI 위기의 진실">14년 차
+                개발자가 밝히는 억대연봉과 AI위기의 진실
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>Real Vally</strong> <br/> 조회수 3만회 ・ 71일 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 5 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/1appWVh4-zs?si=-JH8hFjtOOSwgNDh">
+              <img src="img/sub_img5.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/1appWVh4-zs?si=-JH8hFjtOOSwgNDh" title="사람을 만날 때 밥부터 먹고보세요">사람을 만날 때 밥부터 먹고보세요
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>Real Vally</strong> <br/> 조회수 53만회 ・ 3년 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 6 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/Ux7p_L2U7dM?si=zilyT6jHRdqQdyYD">
+              <img src="img/sub_img6.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/Ux7p_L2U7dM?si=zilyT6jHRdqQdyYD" title="리얼밸리 살아남으려면 바퀴벌레한테도 배워야 한다">최악의 해킹 '이것'
+                눌러 막으세요
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>리얼밸리</strong> <br/> 조회수 33만회 ・ 5일 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 7 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/Ux7p_L2U7dM?si=zilyT6jHRdqQdyYD">
+              <img src="img/sub_img7.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/Ux7p_L2U7dM?si=zilyT6jHRdqQdyYD" title="눈 이렇게 하면 시력 확 밝아집니다">눈 이렇게 하면 시력 확 밝아집니다
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>가인지TV</strong> <br/> 조회수 23만회 ・ 6년 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 8 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/wxtxSV0eQvk?si=WVKfaqBLf7n6uFhU">
+              <img src="img/sub_img8.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/wxtxSV0eQvk?si=WVKfaqBLf7n6uFhU" title="가격은 같은데 10배 더 맛있는 고기">가격은 같은데 10배 더 맛있는
+                고기
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>지식인사이드</strong> <br/> 조회수 13만회 ・ 7일 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 9 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/n03QDI-ByVg?si=iK4fZLhZWvwthXuF">
+              <img src="img/sub_img9.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/n03QDI-ByVg?si=iK4fZLhZWvwthXuF" title="AI와 대결 후기">AI와 대결 후기
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>지식인사이드</strong> <br/> 조회수 56만회 ・ 23일 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 10 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://www.youtube.com/watch?v=6QT6SMPwFXk">
+              <img src="img/sub_img10.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://www.youtube.com/watch?v=6QT6SMPwFXk"
+                 title="실리콘밸리 30년차 개발자, 단계별 커리어 조언, AI 시대의 개발자 | 조코딩의 팟캐스트 #5">
+                실리콘밸리 30년차 개발자, 단계별 커리어 조언
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>조코딩</strong> <br/> 조회수 66.6만회 ・ 1년 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 11 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <img src="img/sub_img11.png" class="bg-img" alt="Video Thumbnail">
+            <div class="video-title">
+              <a href="https://www.youtube.com/watch?v=iT3X2vMvqHE"
+                 title="회사에 불만은 있지만 뭘 하고 싶은지 모르는 당신에게 I 구글 UX 리드 김은주">회사에 불만은 있지만 뭘 하고 싶은지 모르는 당신에게
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>EQ KOREA</strong> <br/> 조회수 21만회 ・ 2년 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 12 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <img src="img/sub_img12.png" class="bg-img" alt="Video Thumbnail">
+            <div class="video-title">
+              <a href="https://www.youtube.com/watch?v=HcTG64Nxj5A" title="똑똑하게 이직하는 기준">똑똑하게 이직하는 기준
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>퇴사한 이형</strong> <br/> 조회수 26만회 ・ 13시간 전<br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
