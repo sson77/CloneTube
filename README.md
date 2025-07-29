@@ -30,6 +30,7 @@
   <section>
     <h2>📁 프로젝트 구조</h2>
     <ul>
+      <li><code>📁 index.html</code>: GitHub Pages 메인(리스트) 페이지</li>   
       <li><code>📁 youtube_list.html</code>: 메인(리스트) 페이지</li>  
       <li><code>📁 subscribe.html</code>: 구독 페이지</li>       
       <li><code>📁 youtube_view.html</code>: 상세 페이지</li>     
