@@ -7,7 +7,8 @@
   <h1>CloneTube 1차 프로젝트</h1>
   <section>
     <h2>📌프로젝트 소개</h2>
-    <li> 웹 사이트 구축 : <a href="https://sson.dothome.co.kr/dev/First_Project/youtube_list.html" target="_blank"> 1차 프론트앤드 프로젝트 바로보기 </li> <br/>
+    <li> 테섭 사이트 구축 : <a href="https://sson.dothome.co.kr/dev/First_Project/youtube_list.html" target="_blank"> 1차 프론트앤드 프로젝트 바로보기 </li> <br/>
+    <li> GitHub Pages 배포 :  https://sson77.github.io/CloneTube/ </li> <br/>
     <li> 프로젝트 소개는 문서 작성 중 입니다..✍️ </li> 
   </section><br/>
   
