@@ -17,10 +17,6 @@
   <link rel="stylesheet" href="css/sub_style.css">
 </head>
 <body>
-<script>
-
-</script>
-
 <!-- Bootstrap 5의 그리드 시스템과 컴포넌트이 반응형 웹 구현
     그리드 시스템 사용 (.row, .col-lg-8, .col-lg-4)
     container-fluid 사용
@@ -538,11 +534,11 @@
    likeBtn.addEventListener('click', () => {
      if (likeCount >= 500) {
        likeCount += 1;
-       likeCount.textContent = formatCount(likeCount);
+       likeDisplay.textContent = formatCount(likeCount);
      }
      else {
        likeCount += 1;
-       likeCount.textContent = formatCount(likeCount);
+       likeDisplay.textContent = formatCount(likeCount);
      }
    });
 
