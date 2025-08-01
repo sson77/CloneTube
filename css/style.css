@@ -341,6 +341,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  font-size: 1rem;
 }
 
 .logo-text {
@@ -380,3 +381,185 @@ a:hover {
 .dropdown-menu-dark .dropdown-item:hover {
   background-color: #333;
 }
+body {
+      background-color: #111;
+      color: white;
+      margin: 15px;
+
+    }
+    .video-section iframe {
+      width: 100%;
+      height: 480px;
+      border: none;
+    }
+    .sidebar .card {
+      background-color: #222;
+      color: white;
+      margin-bottom: 10px;
+    }
+    .comment-box {
+      background-color: #1a1a1a;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .navbar {
+      background-color: #000;
+    }
+   .channel-profile {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .channel-name {
+      font-weight: 600;
+    }
+
+    .subscribe-btn {
+      background-color: #0f0f0f;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-weight: 500;
+    }
+
+    .subscribe-btn:hover {
+      background-color: #272727;
+    }
+
+    .verified-badge {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .subscriber-count {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    .channel-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .channel-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .channel-profile {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .channel-meta {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.95rem;
+    }
+
+    .channel-meta .name {
+      font-weight: 600;
+    }
+
+    .channel-meta .subscribers {
+      color: #aaa;
+      font-size: 0.85rem;
+    }
+
+    .btn-subscribe {
+      background-color: #0f0f0f;
+      color: #fff;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 999px;
+    }
+
+    .btn-subscribe:hover {
+      background-color: #222;
+    }
+
+    .btn-group-small .btn {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .product {
+      background-color: #1e1e1e;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      gap: 12px;
+      margin: 10px 0;
+      align-items: center;
+    }
+
+    .product img {
+      width: 100px;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .product-info {
+      flex-grow: 1;
+    }
+
+    .timestamp {
+      display: block;
+      margin: 6px 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .footer {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 75%; /* 4:3 비율 높이 증가 */
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+       /* 사이드 메뉴 기본 상태 */
+       #sidebar {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 250px;
+         height: 100%;
+         background-color: #212529;
+         color: white;
+         transform: translateX(-100%);
+         transition: transform 0.3s ease-in-out;
+         z-index: 9999;
+         padding: 1rem;
+       }
+
+       /* 열렸을 때 상태 */
+       #sidebar.active {
+         transform: translateX(0);
+       }
+
+       #menuToggleBtn {
+         margin: 1rem;
+       }

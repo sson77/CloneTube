@@ -1,0 +1,118 @@
+ /* 상단 버튼 스타일 */
+    .top-buttons {
+      margin-bottom: 20px;
+    }
+
+    .top-buttons button {
+      background-color: #2b2b2b;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 15px;
+      margin-right: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .top-buttons button:hover,
+    .top-buttons button.active {
+      background-color: #444;
+    }
+
+
+    .sponsor {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #ff4b4b;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .custom-height {
+      height: 130px; /* 또는 원하는 값 */
+    }
+    .navbar {
+      line-height : 15px;
+      min-height: 15px;       /* 기본값은 보통 56px, 이 값을 줄임 */
+      padding-top: 0.25rem;   /* 기본 0.5rem보다 작게 */
+      padding-bottom: 0.25rem;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 20px;
+      background-color: #fff;
+      color: black;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .icon {
+      margin-right: 5px;
+    }
+    .comment {
+      display: flex;
+      margin-bottom: 30px;
+      margin-top: 10px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      background-color: gray;
+      border-radius: 50%;
+      margin-right: 10px;
+      text-align: center;
+      line-height: 40px;
+      font-weight: bold;
+    }
+
+    .comment-body {
+      flex: 1;
+    }
+
+    .user-info {
+      font-weight: bold;
+      color: #ccc;
+    }
+
+    .timestamp {
+      font-size: 12px;
+      color: #777;
+      margin-left: 5px;
+    }
+
+    .text {
+      margin: 5px 0;
+    }
+
+    .actions {
+      font-size: 14px;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 5px;
+    }
+
+    .actions span {
+      cursor: pointer;
+    }
+
+    .replies {
+      margin-top: 10px;
+      margin-left: 50px;
+    }
+
+    .like-count {
+      margin-left: 4px;
+    }
