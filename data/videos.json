@@ -1,0 +1,18 @@
+{
+  "1": {
+    "title": "예제 영상 1",
+    "channel": "예제 채널",
+    "views": "1.2만회",
+    "uploadDate": "2025.07.01",
+    "description": "이것은 예제 영상 설명입니다.",
+    "youtubeId": "dQw4w9WgXcQ"
+  },
+  "2": {
+    "title": "예제 영상 2",
+    "channel": "또 다른 채널",
+    "views": "3.4천회",
+    "uploadDate": "2025.06.15",
+    "description": "다른 영상의 설명 내용입니다.",
+    "youtubeId": "kJQP7kiw5Fk"
+  }
+}
