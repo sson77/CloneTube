@@ -138,7 +138,7 @@
         <!-- 중간: 버튼 그룹 -->
         <div class="btn-group-small d-flex flex-wrap gap-2">
           <button class="btn btn-light" id="likeBtn"><i class="fas fa-thumbs-up me-1"></i><span
-            id="likeCount">1.2천</span></button>
+            id="likeCount">500</span></button>
           <button class="btn btn-dark text-white" id="dislikeBtn"><i class="fas fa-thumbs-down"></i></button>
           <button class="btn btn-dark text-white"><i class="fas fa-share"></i> 공유</button>
           <button class="btn btn-dark text-white"><i class="fas fa-download"></i> 오프라인 저장</button>
@@ -151,7 +151,7 @@
         <p class="highlight"  id="videoMeta">조회수 108,595회 · 2025. 7. 30. · 2개 제품</p>
         <p id="videoChannel"><strong>비디오머그 - VIDEOMUG</strong>(가) 링크된 제품에 대해 수수료를 받을 수 있습니다. <a href="#">자세히 알아보기</a></p>
 
-        <div class="product">
+        <div class="product" id="videoDescription">
           <img src="img/metabook.png" alt="product 1">
           <div class="product-info">
             <p><strong>메타 페이스북: 플랫폼 제품</strong></p>
@@ -509,11 +509,10 @@
 </div>
 </div>
 <script>
-  let likeCount = 1200; // 실제 숫자
+  let likeCount = 500; // 실제 숫자
    const likeDisplay = document.getElementById('likeCount');
    const dislikeBtn = document.getElementById('dislikeBtn');
 
-   // 숫자를 '1.2천' 형식으로 변환하는 함수
    function formatCount(count) {
      if (count >= 1000) {
        return (count / 1000).toFixed(1) + '천';
@@ -524,13 +523,31 @@
 
    // 싫어요 클릭 시 좋아요 감소
    dislikeBtn.addEventListener('click', () => {
-     if (likeCount >= 100) {
-       likeCount -= 100; // 100개 감소
+     if (likeCount >= 500) {
+       likeCount -= 1;
+       likeDisplay.textContent = formatCount(likeCount);
+     }
+     else {
+       likeCount -= 1;
        likeDisplay.textContent = formatCount(likeCount);
      }
    });
 
- const commentInput = document.getElementById('commentInput');
+
+   // 좋아요 클릭 시 좋아요 증가
+   likeBtn.addEventListener('click', () => {
+     if (likeCount >= 500) {
+       likeCount += 1;
+       likeCount.textContent = formatCount(likeCount);
+     }
+     else {
+       likeCount += 1;
+       likeCount.textContent = formatCount(likeCount);
+     }
+   });
+
+
+const commentInput = document.getElementById('commentInput');
 const commentsContainer = document.getElementById('commentsContainer');
 const countSpan = document.getElementById('count');
 
