@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube CloneTube</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/start.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sub_style.css">
+</head>
+<body>
+<script>
+  $(document).ready(function() {
+  // DOM이 완전히 로드된 후 실행할 코드
+   video_view();
+});
+
+function video_view(youtubeId) {
+  var strAjaxUrl = "/Ajax/video.js";
+  $.ajax({
+    url: strAjaxUrl,
+    type: 'POST',
+    dataType: 'json',
+    data: {
+      videoId: youtubeId
+    },
+    success: function(video) {
+      if (!video) {
+        alert('영상 정보를 가져올 수 없습니다.');
+        return;
+      }
+          console.log(video);
+
+      // iframe src 설정 (유튜브 임베드)
+      //document.getElementById('videoIframe').src = `https://www.youtube.com/embed/${video.youtubeId}`;
+
+      // 텍스트 출력
+    //  document.getElementById('videoTitle').textContent = video.title;
+     // document.getElementById('videoChannel').textContent = video.channel;
+     // document.getElementById('videoMeta').textContent = `${video.views.toLocaleString()}회 조회 • ${video.uploadDate}`;
+     // document.getElementById('videoDescription').textContent = video.description;
+    },
+    error: function(xhr, status, error) {
+      alert('영상 정보를 불러오는 중 오류가 발생했습니다.');
+    }
+  });
+}
+</script>
+<!-- Bootstrap 5의 그리드 시스템과 컴포넌트이 반응형 웹 구현
+    그리드 시스템 사용 (.row, .col-lg-8, .col-lg-4)
+    container-fluid 사용
+-->
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark px-3" style="height: 80px; padding: 8px 20px; margin-bottom:50px;">
+  <!-- 햄버거 버튼 -->
+  <button id="menuToggleBtn" class="btn btn-dark">
+    <i class="bi bi-list" style="font-size: 1.5rem;"></i>
+  </button>
+  <!-- 사이드바 메뉴 -->
+  <div id="sidebar">
+    <h5 class="mb-3"><i class="bi bi-youtube text-danger me-2"></i>YouTube</h5>
+    <ul class="list-unstyled">
+      <li class="mb-2"><i class="bi bi-house me-2"></i>홈</li>
+      <li class="mb-2"><i class="bi bi-lightning me-2"></i>Shorts</li>
+      <li class="mb-2"><i class="bi bi-play-btn me-2"></i>구독</li>
+      <hr>
+      <li class="mb-2"><i class="bi bi-clock-history me-2"></i>시청 기록</li>
+      <li class="mb-2"><i class="bi bi-list-ul me-2"></i>재생목록</li>
+      <li class="mb-2"><i class="bi bi-file-earmark-play me-2"></i>내 동영상</li>
+    </ul>
+  </div>
+
+  <a class="navbar-brand" href="youtube_list.html">
+    <span class="logo-text ms-3"><i class="bi bi-youtube text-danger"></i> YouTube</span>
+  </a>
+  <form class="d-flex mx-auto" style="width: 40%;" onsubmit="return search(event)">
+    <input id="searchInput" class="form-control search-bar rounded-start-pill" type="search" placeholder="검색"
+           aria-label="Search">
+    <button class="btn btn-icon rounded-end-pill"><i class="bi bi-search"></i></button>
+    <button class="btn btn-icon rounded-circle"><i class="bi bi-mic-fill"></i></button>
+  </form>
+  <div class="d-flex align-items-center">
+    <button class="btn btn-icon rounded-pill"><i class="bi bi-plus"></i> 만들기</button>
+    <button class="btn btn-icon"><i class="bi bi-bell"></i></button>
+    <div class="">
+      <button class="profile-circle ms-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        산
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end text-small">
+        <li class="dropdown-header">
+          <div class="d-flex align-items-center px-2 py-2">
+            <div class="profile-circle text-white fw-bold d-flex justify-content-center align-items-center me-3">
+              산
+            </div>
+            <div>
+              <div class="fw-bold">손산</div>
+              <div class="fw-bold">milestone7712@gmail.com</div>
+              <a href="#" class="text-primary">채널 만들기</a>
+            </div>
+          </div>
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-plus-circle me-2"></i> 채널 만들기</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i> Google 계정</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-exchange-alt me-2"></i> 계정 전환</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> 로그아웃</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-video me-2"></i> YouTube 스튜디오</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-bag me-2"></i> 구매 항목 및 멤버십</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-database me-2"></i> YouTube의 내 데이터</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-adjust me-2"></i> 디자인:&nbsp;기기 테마</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-language me-2"></i> 언어:&nbsp;한국어</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-ban me-2"></i> 제한모드:사용 안함</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-globe-asia me-2"></i> 위치:&nbsp;한국</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-keyboard me-2"></i> 단축키</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> 설정</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-question-circle me-2"></i> 고객센터</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-comment-dots me-2"></i> 의견 보내기</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- 2. Main Layout -->
+<div class="container-fluid mt-3 px-3">
+  <div class="row justify-content-center">
+
+    <!-- 2.1 Main Video Area -->
+    <div class="col-lg-8 video-section">
+      <!-- 직접 스타일로 높이 조절 -->
+      <div class="video-wrapper rounded shadow overflow-hidden mb-3"
+           style="position: relative; width: 100%; padding-top: 50%;">
+        <iframe id="videoIframe"
+                src=""
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        </iframe>
+
+        <h1 id="videoTitle"></h1>
+        <p id="videoChannel"></p>
+        <p id="videoMeta"></p>
+        <p id="videoDescription"></p>
+      </div>
+      <h5>AI 총책임자에 97년생 앉힌 메타... 마크 저커버그의 도박수 될까?</h5>
+
+      <div class="channel-box">
+
+        <!-- 왼쪽: 프로필 + 이름 -->
+        <div class="channel-info">
+          <img src="/img/vmg.jpg" alt="프로필" class="channel-profile"/>
+          <div class="channel-meta">
+            <div class="name">
+              비디오머그 - VIDEOMUG <i class="fas fa-check-circle text-secondary" style="font-size: 0.8rem;"></i>
+            </div>
+            <div class="subscribers">구독자 179만명</div>
+          </div>
+          <div>
+            <button class="btn-subscribe">구독</button>
+          </div>
+        </div>
+        <!-- 중간: 버튼 그룹 -->
+        <div class="btn-group-small d-flex flex-wrap gap-2">
+          <button class="btn btn-light" id="likeBtn"><i class="fas fa-thumbs-up me-1"></i><span
+            id="likeCount">1.2천</span></button>
+          <button class="btn btn-dark text-white" id="dislikeBtn"><i class="fas fa-thumbs-down"></i></button>
+          <button class="btn btn-dark text-white"><i class="fas fa-share"></i> 공유</button>
+          <button class="btn btn-dark text-white"><i class="fas fa-download"></i> 오프라인 저장</button>
+          <button class="btn btn-dark text-white"><i class="fas fa-bookmark"></i> 저장</button>
+          <button class="btn btn-dark text-white"><i class="fas fa-ellipsis"></i></button>
+        </div>
+      </div>
+      <!-- Description -->
+      <div class="mt-3">
+        <p class="highlight">조회수 108,595회 · 2025. 7. 30. · 2개 제품</p>
+        <p><strong>비디오머그 - VIDEOMUG</strong>(가) 링크된 제품에 대해 수수료를 받을 수 있습니다. <a href="#">자세히 알아보기</a></p>
+
+        <div class="product">
+          <img src="img/metabook.png" alt="product 1">
+          <div class="product-info">
+            <p><strong>메타 페이스북: 플랫폼 제품</strong></p>
+            <p>₩29,700<br><a href="https://link.coupang.com/re/AFYOUTUBE1">link.coupang.com/re/AFYOUTUBE1</a></p>
+          </div>
+        </div>
+
+        <div class="product">
+          <img src="img/AGI.png" alt="product 2">
+          <div class="product-info">
+            <p><strong>AGI의 시대: 인간을 초월한 인공지능</strong></p>
+            <p>₩19,800<br><a href="https://link.coupang.com/re/AFYOUTUBE2">link.coupang.com/re/AFYOUTUBE2</a></p>
+          </div>
+        </div>
+
+        <p>
+          안녕하세요. 데이터를 만들고 다루는 다양한 기업입니다. 대다수 기업들의 2분기 실적 발표 시즌이 왔습니다. 빅테크 기업들을 필두로 미국 증시가 연일 상승세를 이어가고 있죠. 그 영향일까요?
+          개인투자자들의 미국 주식 보유율이 늘어나고 있다는 조사도 나왔습니다. <br><br>
+
+          이런 가운데 최근 가장 논란을 끄는 건 단연 ‘메타’가 아닐까 싶어요. 최근 해외 빅테크 뉴스를 살펴보면 메타 소식이 가득합니다. 메타가 오픈AI에서 인재를 대거 빼왔다는 이야기, 이번엔 심지어
+          구글에서까지 메타로 갔다는 등... 이런 소식이 최근 계속 이어지고 있습니다.
+        </p>
+
+        <p>
+          오늘 오그랩에서는 메타에서 이렇게 힘든 돈을 쏟아부으면서도 AI 인재를 쓸어모으는 것인지, 또 마크 저커버그가 꿈꾸는 메타의 미래는 무엇인지 5가지 그래프를 통해 살펴보겠습니다.
+        </p>
+
+        <p><strong>📌 구성</strong></p>
+        <p class="timestamp">00:00 🟦 오프닝</p>
+        <p class="timestamp">01:21 🟩 AI 기업으로 탈바꿈하면 유지는... 주가는 쾌속 상승</p>
+        <p class="timestamp">05:24 🟨 AI 퍼센트 외쳤지만, 성과제도는 제자리?</p>
+        <p class="timestamp">08:26 🟪 인재에서 꽃피는 메타... AI 리더에 여성만 없었다</p>
+        <p class="timestamp">12:26 🟥 슈퍼랩 꾸린 메타, 초지능 AI에선 여전히 가능할까?</p>
+
+        <p><strong>📚 참고자료</strong></p>
+        <ul>
+          <li>Big Tech’s big R&D bill | Trendline</li>
+          <li>Artificial Analysis Intelligence Index | Artificial Analysis</li>
+          <li>State of AI Report compute Index | State of AI Report 2025</li>
+          <li>Detailed list of all 44 people in Meta's Superintelligence team | Deedy [@deedydas] X</li>
+          <li>Meta FY24 result | Meta</li>
+          <li>Mark Zuckerberg announces creation of Meta Superintelligence Labs. Read the memo | CNBC</li>
+        </ul>
+
+        <p>#비디오머그 #메타 #저커버그 #AI #AGI #미국주식 #VMG #오그랩</p>
+
+        <p>싱크끝고 더알고싶을때, 톡플레이(구독) 👉 <a href="https://premium.sbs.co.kr">https://premium.sbs.co.kr</a></p>
+
+        <p>
+          비디오머그의 공식 링크:<br>
+          ▶ 홈페이지 : <a href="https://n.sbs.co.kr/mugTube">https://n.sbs.co.kr/mugTube</a><br>
+          ▶ 홈 : <a href="https://videomug.co.kr">https://videomug.co.kr</a><br>
+          ▶ 페이스북 : <a href="#">/videomug_sbs</a><br>
+          ▶ 트위터 : <a href="#">/videomug_sbs</a>
+        </p>
+
+        <div class="footer">
+          Copyright ⓒ SBS. All rights reserved. 무단 전재, 재배포 및 AI학습 이용 금지
+        </div>
+      </div>
+      <!-- Comments -->
+      <div class="comment-box">
+        <h6>댓글<span id="count">3</span>개</h6>
+        <input type="text" id="commentInput" class="form-control mb-2" placeholder="댓글을 입력하세요"/>
+        <!-- 댓글 1 -->
+        <div id="commentsContainer">
+          <div class="comment">
+            <div class="avatar">O</div>
+            <div class="comment-body">
+              <div class="user-info">@OLDBOY-e5e <span class="timestamp">1일 전</span></div>
+              <div class="text">스포츠스타들도 수천억 계약 하는데, 지금 최고 수준의 개발자 인재라면 딱히 이상하진 않은 듯.</div>
+              <div class="actions">
+                <span class="like">👍 <span class="like-count">102</span></span>
+                <span class="reply">답글</span>
+              </div>
+            </div>
+          </div>
+          <!-- 댓글 2 -->
+          <div class="comment">
+            <div class="avatar">K</div>
+            <div class="comment-body">
+              <div class="user-info">@KIM3839 <span class="timestamp">1일 전</span></div>
+              <div class="text">이야... 영상 퀄리티 작살이네요. 논리적 흐름과 균형도 좋고, 디자인도 통일성 잡혀있고, 사운드도 잘 쓰고, 중간 중간에 센스있는 모션그래픽도...
+              </div>
+              <div class="actions">
+                <span class="like">👍 <span class="like-count">108</span></span>
+                <span class="reply">답글</span>
+              </div>
+            </div>
+          </div>
+          <!-- 댓글 3 -->
+          <div class="comment">
+            <div class="avatar">사장</div>
+            <div class="comment-body">
+              <div class="user-info">@송사장-v1y <span class="timestamp">1일 전</span></div>
+              <div class="text">엄청난 연봉으로 인재를 끌어 모을 수 있는 메타가 정말 부럽네요</div>
+              <div class="actions">
+                <span class="like">👍 <span class="like-count">21</span></span>
+                <span class="reply">답글</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 2.2 Sidebar (추천 영상) -->
+    <div class="col-lg-4 sidebar">
+      <!-- 상단 버튼 -->
+      <div class="top-buttons">
+        <button class="active">모두</button>
+        <button>비디오머그 - VIDEOMUG 제공</button>
+        <button>비즈니스 뉴스</button>
+        <button>관련 콘텐츠</button>
+      </div>
+      <!-- 추천 영상 카드 반복 시작 -->
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex"  onclick="video_view('1')" style="cursor:pointer;">
+          <img
+            src="https://i.ytimg.com/an_webp/AYzVkjG-W-U/mqdefault_6s.webp?du=3000&sqp=CI2uq8QG&rs=AOn4CLAV79Cbr8zCd7_9R10mQaAk5H-A7g"
+            class="me-2" alt="챗GPT 이렇게 쓰면 뇌 기능이 저하됩니다" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">챗GPT 이렇게 쓰면 뇌 기능이 저하됩니다</p>
+            <small>장동선의 궁금한 뇌 · 조회수 8.4만회 · 6일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/eYx-aUkXFBc/mqdefault_6s.webp?du=3000&sqp=CMjPq8QG&rs=AOn4CLBHY2zhIryZK6K8GFKb8u5dONJ6JQ"
+            class="me-2" alt="상류층과 서민층의 차원" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">상류층과 서민층의 차원이 다른 문</p>
+            <small>tvN Joy · 조회수 14만회 · 3일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/H2OLJY0iqNU/mqdefault_6s.webp?du=3000&sqp=CPDOq8QG&rs=AOn4CLDGmRNQPK8VPCCb4V2ZdSC69Ew7dg"
+            class="me-2" alt="트럼프가 6개월 간 감춘 진짜 돈의 흐름" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">트럼프가 6개월 간 감춘 진짜 돈의 흐름</p>
+            <small>비디오머그 · 조회수 130만회 · 1개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/w2c1XclG4U0/mqdefault_6s.webp?du=3000&sqp=CLHRq8QG&rs=AOn4CLAkffvNg9UnYkFZHCwqsQ8PZ42IcQ"
+            class="me-2" alt="팔란티어 AI 방산 기업 위험한 질주" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">팔란티어 AI 방산 기업 위험한 질주</p>
+            <small>비디오머그 · 조회수 55만회 · 4개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/rSS5yM74zeo/mqdefault_6s.webp?du=3000&sqp=CIC8q8QG&rs=AOn4CLAwEJHaAMJb0CVlhsX7aWnOFMXJrA"
+            class="me-2" alt="스탠포드 AI 시대 창의력 훈련법" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">스탠포드가 가르치는 AI 시대 창의력 훈련법</p>
+            <small>EO Korea · 조회수 76만회 · 2개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/We6QG55wvac/mqdefault_6s.webp?du=3000&sqp=CIXcq8QG&rs=AOn4CLCytySiB7FO2q0uI1NohV4ss-NP2g"
+            class="me-2" alt="폭발물 테러로 꼬리빼기까지 산산조각" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">폭발물 테러로 꼬리빼기까지 산산조각</p>
+            <small>디글 클래식 · 조회수 9만회 · 1개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/JPQj-uLC--g/mqdefault_6s.webp?du=3000&sqp=CPjcq8QG&rs=AOn4CLAAXGqcz6U1Ny9dycixajjJmWqKJw"
+            class="me-2" alt="팀장 하기 싫어요ㅜ 직장인 승진 회피하는 진짜 이유" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">팀장 하기 싫어요ㅜ 직장인 승진 회피하는 진짜 이유</p>
+            <small>스브스뉴스 · 조회수 33만회 · 2개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/OSAfKWkAUNU/mqdefault_6s.webp?du=3000&sqp=CJDFq8QG&rs=AOn4CLBhS8Fqg3ZSTvjbMcEyYok2IoE0cQ"
+            class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/rSS5yM74zeo/mqdefault_6s.webp?du=3000&sqp=CIC8q8QG&rs=AOn4CLAwEJHaAMJb0CVlhsX7aWnOFMXJrA"
+            class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/flAinFscVmM/mqdefault_6s.webp?du=3000&sqp=CLqsq8QG&rs=AOn4CLDNwDaOvUDd1w0cqL6_rwF-B-Vy4A"
+            class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">한국인이 반드시 가져야 할 방식과 태도</p>
+            <small>디글 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/qgk7ro45ZPI/mqdefault_6s.webp?du=3000&sqp=CMrPq8QG&rs=AOn4CLDLEbPGzmQ3NWe2vz5YVBQdxGGA2A"
+            class="me-2" alt="[유퀴즈온더블럭] 힘들어도 '이렇게' 읽으셔야 합니다" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">[#유퀴즈온더블럭] 힘들어도 '이렇게' 읽으셔야 합니다 | 서울대 필...</p>
+            <small>딩글 :Diggle · 조회수 19만회 · 12일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/10XF_KijZLA/mqdefault_6s.webp?du=3000&sqp=CIC-q8QG&rs=AOn4CLCiHsJYyE0ionZzfpW88lvVAmZX2g"
+            class="me-2" alt="‘멸탑 바사삭’ MZ 언어까지 학습한 챗GPT" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">‘멸탑 바사삭’ MZ 언어까지 학습한 챗GPT...5년뒤 7억3천만명 쓰게 된다?</p>
+            <small>MBCNEWS · 조회수 12만회 · 4일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/0lJj6IHIYMM/mqdefault_6s.webp?du=3000&sqp=CJ7Gq8QG&rs=AOn4CLDp2XY-D9PniEpZPEjkog6qjXV0Xw"
+            class="me-2" alt="백만 유튜브 채널 가진 CEO의 회사는 왜 망했을까?" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">백만 유튜브 채널 가진 CEO의 회사는 왜 망했을까?</p>
+            <small>스브스뉴스 SUBUSUNEWS · 조회수 15만회 · 4일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/10XF_KijZLA/mqdefault_6s.webp?du=3000&sqp=CIC-q8QG&rs=AOn4CLCiHsJYyE0ionZzfpW88lvVAmZX2g"
+            class="me-2" alt="급증하는 멀티탭 화재, 진짜 원인은 따로 있다?" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">급증하는 멀티탭 화재, 진짜 원인은 따로 있다? | 크랩</p>
+            <small>크랩 KLAB · 조회수 27만회 · 4일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/Yn8H7LokKdQ/mqdefault_6s.webp?du=3000&sqp=CPjBq8QG&rs=AOn4CLDDQ1BHoRQ87PGo8k3Kcb6mCQkaMw"
+            class="me-2" alt="“이건 정말 바보 같은 거예요” 40~50대가 직장에서 살아남는 법"
+            style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">“착각하지 마세요. 이건 정말 바보 같은 거예요...” 40~50대가 직장에서 살아남는 법</p>
+            <small>똑똑한 하루 · 조회수 19만회 · 7일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/9uos2eMwUbg/mqdefault_6s.webp?du=3000&sqp=CPi9q8QG&rs=AOn4CLCKfNAP0gMxvddeEFO5lkrNa2KY-g"
+            class="me-2" alt="일단 시작하고 행동해야 뇌가 바뀐다!" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">일단 시작하고 행동해야 뇌가 바뀐다! | 행동의 뇌과학</p>
+            <small>차이나는 클라스 · 조회수 7.1만회 · 3일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/KbGuc1RrJb4/mqdefault_6s.webp?du=3000&sqp=CKjqq8QG&rs=AOn4CLBXvWG59_EhRo0xZ9B1QR10PYv8TA"
+            class="me-2" alt="일본은, 뉴스케일파워 원전주 급등… 원전株 주목" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">일본은, 뉴스케일파워 원전주 급등… 원전株 주목 다시 돌아온다?</p>
+            <small>비디오머그 VIDEOMUG · 조회수 23만회 · 1개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex">
+          <img
+            src="https://i.ytimg.com/an_webp/9jAPvcrCYCQ/mqdefault_6s.webp?du=3000&sqp=CNDzq8QG&rs=AOn4CLCKSnlzzE1qnQ-jvCs3B9ZEWG4YBg"
+            class="me-2" alt="AI 과학자 장동선 박사의 슬픈 과거 이야기" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">AI 과학자 장동선 박사의 슬픈 과거 이야기… AI 시대에서 우리가 할 일은?</p>
+            <small>오은영의 족집게 강의 · 조회수 4.6만회 · 2일 전</small>
+          </div>
+        </div>
+      </div>
+      <!-- 추천 영상 카드 반복 끝 -->
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  let likeCount = 1200; // 실제 숫자
+   const likeDisplay = document.getElementById('likeCount');
+   const dislikeBtn = document.getElementById('dislikeBtn');
+
+   // 숫자를 '1.2천' 형식으로 변환하는 함수
+   function formatCount(count) {
+     if (count >= 1000) {
+       return (count / 1000).toFixed(1) + '천';
+     } else {
+       return count.toString();
+     }
+   }
+
+   // 싫어요 클릭 시 좋아요 감소
+   dislikeBtn.addEventListener('click', () => {
+     if (likeCount >= 100) {
+       likeCount -= 100; // 100개 감소
+       likeDisplay.textContent = formatCount(likeCount);
+     }
+   });
+
+ const commentInput = document.getElementById('commentInput');
+const commentsContainer = document.getElementById('commentsContainer');
+const countSpan = document.getElementById('count');
+
+// 댓글 추가 함수
+function addComment(text) {
+  if (!text.trim()) return; // 빈 문자열 무시
+
+  // 댓글 개수 업데이트
+  let count = parseInt(countSpan.textContent);
+  countSpan.textContent = count + 1;
+
+  // 댓글 요소 생성
+  const commentDiv = document.createElement('div');
+  commentDiv.classList.add('comment');
+
+  // 임시 사용자명과 '방금 전' 텍스트
+  const username = '@사용자-SSON';
+  const timestamp = '방금 전';
+
+  // 프로필 아이콘 문자 (예: 사용자명 첫 글자, 없으면 '@')
+  const avatarChar = username.charAt(1) || '@';
+
+  commentDiv.innerHTML = `
+    <div class="avatar">${avatarChar}</div>
+    <div class="comment-body">
+      <div>
+        <span class="user-name">${username}</span>
+        <span class="timestamp">${timestamp}</span>
+      </div>
+      <div class="comment-text">${text}</div>
+      <div class="comment-info">
+        <span class="like">👍 1</span>
+        <span class="reply">답글</span>
+      </div>
+    </div>
+  `;
+
+  // 하단에 댓글 추가
+  commentsContainer.appendChild(commentDiv);
+}
+
+// 엔터 키 입력시 댓글 추가
+commentInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    addComment(commentInput.value);
+    commentInput.value = '';
+  }
+});
+</script>
+</body>
+</html>

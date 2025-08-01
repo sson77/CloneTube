@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube CloneTube</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/start.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script>
+  const menuBtn = document.getElementById('menuToggleBtn');
+  const sidebar = document.getElementById('sidebar');
+
+  menuBtn.addEventListener('click', function () {
+    sidebar.classList.toggle('active');
+  });
+</script>
+<!-- Bootstrap 5의 그리드 시스템과 컴포넌트이 반응형 웹 구현
+    그리드 시스템 사용 (.row, .col-lg-8, .col-lg-4)
+    container-fluid 사용
+-->
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark px-3">
+  <!-- 햄버거 버튼 -->
+  <button id="menuToggleBtn" class="btn btn-dark">
+    <i class="bi bi-list" style="font-size: 1.5rem;"></i>
+  </button>
+
+  <!-- 사이드바 메뉴 -->
+  <div id="sidebar">
+    <h5 class="mb-3"><i class="bi bi-youtube text-danger me-2"></i>YouTube</h5>
+    <ul class="list-unstyled">
+      <li class="mb-2"><i class="bi bi-house me-2"></i>홈</li>
+      <li class="mb-2"><i class="bi bi-lightning me-2"></i>Shorts</li>
+      <li class="mb-2"><i class="bi bi-play-btn me-2"></i>구독</li>
+      <hr>
+      <li class="mb-2"><i class="bi bi-clock-history me-2"></i>시청 기록</li>
+      <li class="mb-2"><i class="bi bi-list-ul me-2"></i>재생목록</li>
+      <li class="mb-2"><i class="bi bi-file-earmark-play me-2"></i>내 동영상</li>
+    </ul>
+  </div>
+
+  <a class="navbar-brand" href="youtube_list.html">
+    <span class="logo-text ms-3"><i class="bi bi-youtube text-danger"></i> YouTube</span>
+  </a>
+  <form class="d-flex mx-auto" style="width: 40%;" onsubmit="return search(event)">
+    <input id="searchInput" class="form-control search-bar rounded-start-pill" type="search" placeholder="검색"
+           aria-label="Search">
+    <button class="btn btn-icon rounded-end-pill"><i class="bi bi-search"></i></button>
+    <button class="btn btn-icon rounded-circle"><i class="bi bi-mic-fill"></i></button>
+  </form>
+  <div class="d-flex align-items-center">
+    <button class="btn btn-icon rounded-pill"><i class="bi bi-plus"></i> 만들기</button>
+    <button class="btn btn-icon"><i class="bi bi-bell"></i></button>
+    <div class="">
+      <button class="profile-circle ms-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        산
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end text-small">
+        <li class="dropdown-header">
+          <div class="d-flex align-items-center px-2 py-2">
+            <div class="profile-circle text-white fw-bold d-flex justify-content-center align-items-center me-3">
+              산
+            </div>
+            <div>
+              <div class="fw-bold">손산</div>
+              <div class="fw-bold">milestone7712@gmail.com</div>
+              <a href="#" class="text-primary">채널 만들기</a>
+            </div>
+          </div>
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-plus-circle me-2"></i> 채널 만들기</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i> Google 계정</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-exchange-alt me-2"></i> 계정 전환</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> 로그아웃</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-video me-2"></i> YouTube 스튜디오</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-bag me-2"></i> 구매 항목 및 멤버십</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-database me-2"></i> YouTube의 내 데이터</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-adjust me-2"></i> 디자인:&nbsp;기기 테마</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-language me-2"></i> 언어:&nbsp;한국어</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-ban me-2"></i> 제한모드:사용 안함</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-globe-asia me-2"></i> 위치:&nbsp;한국</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-keyboard me-2"></i> 단축키</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> 설정</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-question-circle me-2"></i> 고객센터</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-comment-dots me-2"></i> 의견 보내기</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- 2. Main Layout -->
+<div class="container-fluid mt-3 px-3">
+  <div class="row justify-content-center">
+
+    <!-- 2.1 Main Video Area -->
+    <div class="col-lg-8 video-section">
+      <!-- 직접 스타일로 높이 조절 -->
+      <div class="video-wrapper rounded shadow overflow-hidden mb-3" style="position: relative; width: 100%; padding-top: 50%;">
+        <iframe
+          src="https://www.youtube.com/embed/HHmie_P3ykY?si=abnbG2O5SEc_lXl2"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        </iframe>
+      </div>
+      <h5>AI 총책임자에 97년생 앉힌 메타... 마크 저커버그의 도박수 될까?</h5>
+
+      <div class="channel-box">
+
+        <!-- 왼쪽: 프로필 + 이름 -->
+        <div class="channel-info">
+          <img src="/img/vmg.jpg" alt="프로필" class="channel-profile" />
+          <div class="channel-meta">
+            <div class="name">
+              비디오머그 - VIDEOMUG <i class="fas fa-check-circle text-secondary" style="font-size: 0.8rem;"></i>
+            </div>
+            <div class="subscribers">구독자 179만명</div>
+          </div>
+          <div>
+            <button class="btn-subscribe">구독</button>
+          </div>
+        </div>
+        <!-- 중간: 버튼 그룹 -->
+        <div class="btn-group-small d-flex flex-wrap gap-2">
+          <button class="btn btn-light"><i class="fas fa-thumbs-up me-1"></i>1.2천</button>
+          <button class="btn btn-dark text-white"><i class="fas fa-thumbs-down"></i></button>
+          <button class="btn btn-dark text-white"><i class="fas fa-share"></i> 공유</button>
+          <button class="btn btn-dark text-white"><i class="fas fa-download"></i> 오프라인 저장</button>
+          <button class="btn btn-dark text-white"><i class="fas fa-bookmark"></i> 저장</button>
+          <button class="btn btn-dark text-white"><i class="fas fa-ellipsis"></i></button>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="mt-3">
+        <p class="highlight">조회수 108,595회 · 2025. 7. 30. · 2개 제품</p>
+        <p><strong>비디오머그 - VIDEOMUG</strong>(가) 링크된 제품에 대해 수수료를 받을 수 있습니다. <a href="#">자세히 알아보기</a></p>
+
+        <div class="product">
+          <img src="img/metabook.png" alt="product 1">
+          <div class="product-info">
+            <p><strong>메타 페이스북: 플랫폼 제품</strong></p>
+            <p>₩29,700<br><a href="https://link.coupang.com/re/AFYOUTUBE1">link.coupang.com/re/AFYOUTUBE1</a></p>
+          </div>
+        </div>
+
+        <div class="product">
+          <img src="img/AGI.png" alt="product 2">
+          <div class="product-info">
+            <p><strong>AGI의 시대: 인간을 초월한 인공지능</strong></p>
+            <p>₩19,800<br><a href="https://link.coupang.com/re/AFYOUTUBE2">link.coupang.com/re/AFYOUTUBE2</a></p>
+          </div>
+        </div>
+
+        <p>
+          안녕하세요. 데이터를 만들고 다루는 다양한 기업입니다. 대다수 기업들의 2분기 실적 발표 시즌이 왔습니다. 빅테크 기업들을 필두로 미국 증시가 연일 상승세를 이어가고 있죠. 그 영향일까요? 개인투자자들의 미국 주식 보유율이 늘어나고 있다는 조사도 나왔습니다. <br><br>
+
+          이런 가운데 최근 가장 논란을 끄는 건 단연 ‘메타’가 아닐까 싶어요. 최근 해외 빅테크 뉴스를 살펴보면 메타 소식이 가득합니다. 메타가 오픈AI에서 인재를 대거 빼왔다는 이야기, 이번엔 심지어 구글에서까지 메타로 갔다는 등... 이런 소식이 최근 계속 이어지고 있습니다.
+        </p>
+
+        <p>
+          오늘 오그랩에서는 메타에서 이렇게 힘든 돈을 쏟아부으면서도 AI 인재를 쓸어모으는 것인지, 또 마크 저커버그가 꿈꾸는 메타의 미래는 무엇인지 5가지 그래프를 통해 살펴보겠습니다.
+        </p>
+
+        <p><strong>📌 구성</strong></p>
+        <p class="timestamp">00:00 🟦 오프닝</p>
+        <p class="timestamp">01:21 🟩 AI 기업으로 탈바꿈하면 유지는... 주가는 쾌속 상승</p>
+        <p class="timestamp">05:24 🟨 AI 퍼센트 외쳤지만, 성과제도는 제자리?</p>
+        <p class="timestamp">08:26 🟪 인재에서 꽃피는 메타... AI 리더에 여성만 없었다</p>
+        <p class="timestamp">12:26 🟥 슈퍼랩 꾸린 메타, 초지능 AI에선 여전히 가능할까?</p>
+
+        <p><strong>📚 참고자료</strong></p>
+        <ul>
+          <li>Big Tech’s big R&D bill | Trendline</li>
+          <li>Artificial Analysis Intelligence Index | Artificial Analysis</li>
+          <li>State of AI Report compute Index | State of AI Report 2025</li>
+          <li>Detailed list of all 44 people in Meta's Superintelligence team | Deedy [@deedydas] X</li>
+          <li>Meta FY24 result | Meta</li>
+          <li>Mark Zuckerberg announces creation of Meta Superintelligence Labs. Read the memo | CNBC</li>
+        </ul>
+
+        <p>#비디오머그 #메타 #저커버그 #AI #AGI #미국주식 #VMG #오그랩</p>
+
+        <p>싱크끝고 더알고싶을때, 톡플레이(구독) 👉 <a href="https://premium.sbs.co.kr">https://premium.sbs.co.kr</a></p>
+
+        <p>
+          비디오머그의 공식 링크:<br>
+          ▶ 홈페이지 : <a href="https://n.sbs.co.kr/mugTube">https://n.sbs.co.kr/mugTube</a><br>
+          ▶ 홈 : <a href="https://videomug.co.kr">https://videomug.co.kr</a><br>
+          ▶ 페이스북 : <a href="#">/videomug_sbs</a><br>
+          ▶ 트위터 : <a href="#">/videomug_sbs</a>
+        </p>
+
+        <div class="footer">
+          Copyright ⓒ SBS. All rights reserved. 무단 전재, 재배포 및 AI학습 이용 금지
+        </div>
+      </div>
+
+      <!-- Comments -->
+      <div class="comment-box">
+        <h6>댓글 19개</h6>
+        <input type="text" class="form-control mb-2" placeholder="댓글 추가...">
+        <div class="mt-2">
+          <strong>@TheBGM_list</strong>: 들어두면 진짜 좋아요!
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.2 Sidebar (추천 영상) -->
+    <div class="col-lg-4 sidebar">
+
+      <!-- 추천 영상 카드 반복 시작 -->
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/kXXLlhKnwZY/hqdefault.jpg" class="me-2" alt="챗GPT 이렇게 쓰면 뇌 기능이 저하됩니다" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">챗GPT 이렇게 쓰면 뇌 기능이 저하됩니다</p>
+            <small>장동선의 궁금한 뇌 · 조회수 8.4만회 · 6일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/UzE-EZcsUl8/hqdefault.jpg" class="me-2" alt="상류층과 서민층의 차원" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">상류층과 서민층의 차원이 다른 문</p>
+            <small>tvN Joy · 조회수 14만회 · 3일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/7_5j17b8i-o/hqdefault.jpg" class="me-2" alt="트럼프가 6개월 간 감춘 진짜 돈의 흐름" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">트럼프가 6개월 간 감춘 진짜 돈의 흐름</p>
+            <small>비디오머그 · 조회수 130만회 · 1개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/bYrh1TFeC-w/hqdefault.jpg" class="me-2" alt="팔란티어 AI 방산 기업 위험한 질주" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">팔란티어 AI 방산 기업 위험한 질주</p>
+            <small>비디오머그 · 조회수 55만회 · 4개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/k3PQGxP16Ow/hqdefault.jpg" class="me-2" alt="스탠포드 AI 시대 창의력 훈련법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">스탠포드가 가르치는 AI 시대 창의력 훈련법</p>
+            <small>EO Korea · 조회수 76만회 · 2개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/7UnuKmEbgho/hqdefault.jpg" class="me-2" alt="폭발물 테러로 꼬리빼기까지 산산조각" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">폭발물 테러로 꼬리빼기까지 산산조각</p>
+            <small>디글 클래식 · 조회수 9만회 · 1개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/2bTghlb6R8M/hqdefault.jpg" class="me-2" alt="팀장 하기 싫어요ㅜ 직장인 승진 회피하는 진짜 이유" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">팀장 하기 싫어요ㅜ 직장인 승진 회피하는 진짜 이유</p>
+            <small>스브스뉴스 · 조회수 33만회 · 2개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2">
+        <div class="d-flex">
+          <img src="https://i.ytimg.com/vi/lS2plQcFf5M/hqdefault.jpg" class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 120px; height: 70px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- 추천 영상 카드 반복 끝 -->
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
