@@ -1,31 +1,303 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>YouTube Clone</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/start.js"></script>
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
 </head>
 <body>
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark px-3">
+  <button class="btn text-white" type="button">
+    <i class="bi bi-list" style="font-size: 1.5rem;"></i>
+  </button>
+  <a class="navbar-brand" href="#" onclick="location.reload(); return false;">
+    <span class="logo-text ms-3"><i class="bi bi-youtube text-danger"></i> YouTube</span>
+  </a>
+  <form class="d-flex mx-auto" style="width: 40%;"  onsubmit="return search(event)">
+    <input id="searchInput" class="form-control search-bar rounded-start-pill" type="search" placeholder="검색" aria-label="Search">
+    <button class="btn btn-icon rounded-end-pill"><i class="bi bi-search"></i></button>
+    <button class="btn btn-icon rounded-circle"><i class="bi bi-mic-fill"></i></button>
+  </form>
+  <div class="d-flex align-items-center">
+    <button class="btn btn-icon rounded-pill"><i class="bi bi-plus"></i> 만들기</button>
+    <button class="btn btn-icon"><i class="bi bi-bell"></i></button>
+    <div class="">
+      <button class="profile-circle ms-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        산
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end text-small">
+        <li class="dropdown-header">
+          <div class="d-flex align-items-center px-2 py-2">
+            <div class="profile-circle text-white fw-bold d-flex justify-content-center align-items-center me-3">
+              산
+            </div>
+            <div>
+              <div class="fw-bold">손산</div>
+              <div class="fw-bold" >milestone7712@gmail.com</div>
+              <a href="#" class="text-primary">채널 만들기</a>
+            </div>
+          </div>
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-plus-circle me-2"></i> 채널 만들기</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i> Google 계정</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-exchange-alt me-2"></i> 계정 전환</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> 로그아웃</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-video me-2"></i> YouTube 스튜디오</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-bag me-2"></i> 구매 항목 및 멤버십</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-database me-2"></i> YouTube의 내 데이터</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-adjust me-2"></i> 디자인:&nbsp;기기 테마</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-language me-2"></i> 언어:&nbsp;한국어</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-ban me-2"></i> 제한모드:사용 안함</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-globe-asia me-2"></i> 위치:&nbsp;한국</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-keyboard me-2"></i> 단축키</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> 설정</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-question-circle me-2"></i> 고객센터</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-comment-dots me-2"></i> 의견 보내기</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2 sidebar">
+      <a href="youtube_list.html" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;"> <i
+        class="fas fa-home"></i>&nbsp;홈</a>
+      <a href="#"> <i class="fas fa-bolt"></i>&nbsp;Shorts</a>
+      <a href="Subscribe.html"> <i class="fas fa-photo-video"></i>&nbsp;구독</a>
+      <a href="#"><i class="fas fa-music"></i>&nbsp;YouTube Music</a>
+      <hr>
+      <h6>내 페이지 ></h6>
+      <a href="#"><i class="fas fa-history"></i>&nbsp;시청 기록</a>
+      <a href="#"><i class="fas fa-list"></i>&nbsp;재생목록</a>
+      <a href="video.html?videoId=1"><i class="fas fa-video"></i>&nbsp;내 영상</a>
+      <a href="#"><i class="fas fa-film"></i>&nbsp;내 영화</a>
+      <a href="#"><i class="fas fa-clock"></i>&nbsp;나중에 본 동영상</a>
+      <a href="#"><i class="fas fa-thumbs-up"></i>&nbsp;좋아요 표시한 동영상</a>
+      <a href="#"><i class="fas fa-download"></i>&nbsp;오프라인 저장 동영상</a>
+      <hr>
+      <h6>구독</h6>
+      <a href="#"><i class="fas fa-user"></i>&nbsp;디글:Diggle</a>
+      <a href="#"><i class="fas fa-user"></i>&nbsp;SBS 뉴스</a>
+    </div>
+    <!-- Main Content -->
+    <div class="col-md-10 p-4">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Video 1 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="video.html?videoId=1">
+              <img src="img/image7.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="video.html?videoId=1" title="🚢⚓어릴적 우리의 꿈을 해적으로 바꾼 원피스 코요태-우리의 꿈">🚢⚓어릴적
+                우리의 꿈을 해적으로 바꾼 원피스
+                코요태-우리의 꿈</a>
+            </div>
+            <div class="bottom-bar">
+              <strong>원피스</strong> <br/> 조회수 33만회 ・ 1년 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 2 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="video.html?videoId=1">
+              <img src="img/image8.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="video.html?videoId=1" title="이스트소프트 신규 AI 검색 엔진 분석">이스트소프트 신규 AI 검색
+                엔진 분석
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>EST</strong> <br/> 조회수 15만회 ・ 7개월 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 3 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="video.html?videoId=1">
+              <img src="img/image1.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="video.html?videoId=1" title="50세 한국인의 실리콘밸리 도전기">50세 한국인의 실리콘밸리 도전기
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>EO Korea</strong> <br/> 조회수 72만회 ・ 1일 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 4 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/RWb1EHmZBHg?si=Iui7hE9UECKsdHvl" title="5실리콘밸리와 한국? 실력차이는 없어요. '이것'만 다를 뿐">
+              <img src="img/image2.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/RWb1EHmZBHg?si=Iui7hE9UECKsdHvl" title="5실리콘밸리와 한국? 실력차이는 없어요. '이것'만 다를 뿐">실리콘밸리와
+                한국? 실력차이는 없어요. '이것'만 다를 뿐
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>Real Vally</strong> <br/> 조회수 53만회 ・ 15일 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 5 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/c-p1r7nispQ?si=fdvn3NuG5lPBSbKC" title="27년차 실리콘밸리 개발자의 인생 이야기[한기용] 1부">
+              <img src="img/image3.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/c-p1r7nispQ?si=fdvn3NuG5lPBSbKC" title="27년차 실리콘밸리 개발자의 인생 이야기[한기용] 1부">27년차
+                실리콘밸리 개발자의 인생 이야기[한기용] 1부
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>Real Vally</strong> <br/> 조회수 73만회 ・ 25일 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 6 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/Ux7p_L2U7dM?si=zilyT6jHRdqQdyYD" title="리얼밸리 살아남으려면 바퀴벌레한테도 배워야 한다">
+              <img src="img/image4.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/Ux7p_L2U7dM?si=zilyT6jHRdqQdyYD" title="리얼밸리 살아남으려면 바퀴벌레한테도 배워야 한다">살아남으려면
+                바퀴벌레한테도 배워야 한다
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>리얼밸리</strong> <br/> 조회수 23만회 ・ 5일 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 7 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/4LCjdHjRMdM?feature=shared" title="실력있는 직원보다 중요한 '이것'">
+              <img src="img/image5.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/4LCjdHjRMdM?feature=shared" title="실력있는 직원보다 중요한 '이것'">실력있는 직원보다 중요한 '이것'
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>가인지TV</strong> <br/> 조회수 133만회 ・ 2개월 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 8 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/BJffAD5Ga-U?feature=shared" title="직원이 실수 했을 때 절대 하면 안되는 것">
+              <img src="img/image6.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/BJffAD5Ga-U?feature=shared" title="직원이 실수 했을 때 절대 하면 안되는 것">직원이 실수 했을 때 절대
+                하면 안되는 것
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>가인지TV</strong> <br/> 조회수 13만회 ・ 12일 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 9 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/dFesH3lCO1k?si=XiDQlJ7gf57HguLK" title="실리콘밸리에서 혼자 잘하는 사람이 인정 못 받는 이유">
+              <img src="img/image9.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/dFesH3lCO1k?si=XiDQlJ7gf57HguLK" title="실리콘밸리에서 혼자 잘하는 사람이 인정 못 받는 이유">실리콘밸리에서
+                혼자 잘하는 사람이 인정 못 받는 이유
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>YTN</strong> <br/> 조회수 53만회 ・ 2년 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 10 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/HBrJBeH5YmA?si=WMsTiMmkov0SWKeM"
+               title="도망치세요! 직접 해결하려 하지 마세요! 버티면 결국 '나만' 손해일 수도">
+              <img src="img/image10.png" class="bg-img" alt="Video Thumbnail">
+            </a>
 
+            <div class="video-title">
+              <a href="https://youtu.be/HBrJBeH5YmA?si=WMsTiMmkov0SWKeM"
+                 title="도망치세요! 직접 해결하려 하지 마세요! 버티면 결국 '나만' 손해일 수도">도망치세요! 직접 해결하려 하지 마세요! 버티면 결국 '나만' 손해일 수도
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>내 친구는 인사팀</strong> <br/> 조회수 23만회 ・ 14일 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 11 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/czaIXR0dYQM?si=mCv6GF1BZqhhh2dY" title="어떻게 압도적으로 팔 것인가">
+              <img src="img/image11.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+
+            <div class="video-title">
+              <a href="https://youtu.be/czaIXR0dYQM?si=mCv6GF1BZqhhh2dY" title="어떻게 압도적으로 팔 것인가">압도적으로 팔릴 수 밖에 없는 세일즈 기술
+                한성자동차 윤미애이사
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>한성자동차</strong> <br/> 조회수 103만회 ・ 7일 전<br>
+            </div>
+          </div>
+        </div>
+        <!-- Video 12 -->
+        <div class="col">
+          <div class="video-thumbnail">
+            <a href="https://youtu.be/8zzNBLj_FPM?si=hNZVNzmXEijJvdao" title="[손석희의 질문들] 손석희를 놀라게한 최재천의 이야기?">
+              <img src="img/image12.png" class="bg-img" alt="Video Thumbnail">
+            </a>
+            <div class="video-title">
+              <a href="https://youtu.be/8zzNBLj_FPM?si=hNZVNzmXEijJvdao" title="[손석희의 질문들] 손석희를 놀라게한 최재천의 이야기?">[손석희의
+                질문들] 손석희를 놀라게한 최재천의 이야기?
+              </a>
+            </div>
+            <div class="bottom-bar">
+              <strong>손석희의 질문들</strong> <br/> 조회수 133만회 ・ 10일 전<br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
-
 </html>
