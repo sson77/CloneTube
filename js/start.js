@@ -19,3 +19,7 @@ function search(event) {
   return false;
 }
 
+
+ function show_Menu() {
+    document.getElementById("menu1").style.display = "block";
+  }
