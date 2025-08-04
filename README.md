@@ -7,9 +7,22 @@
   <h1>CloneTube 1차 프로젝트</h1>
   <section>
     <h2>📌프로젝트 소개</h2>
-    <li> 테섭 사이트 구축 : <a href="https://sson.dothome.co.kr/dev/First_Project/youtube_list.html" target="_blank"> 1차 프론트앤드 프로젝트 바로보기</a> </li> <br/>
-    <li> GitHub Pages 배포 : <a href="https://sson77.github.io/CloneTube/" target="_blank">  https://sson77.github.io/CloneTube/</a> </li> <br/>
-    <li> 프로젝트 소개는 문서 작성 중 입니다..✍️ </li> 
+    <li>테섭 사이트 구축 : <a href="https://sson.dothome.co.kr/dev/First_Project/youtube_list.html" target="_blank"> 1차 프론트앤드 프로젝트 바로보기</a> </li> <br/>
+    <li>GitHub Pages 배포 : <a href="https://sson77.github.io/CloneTube/" target="_blank">  https://sson77.github.io/CloneTube/</a> </li> <br/>
+    <li>프로젝트 명: YouTube 클론 웹 애플리케이션 </li> 
+    <li>프로젝트 개요: <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 본 프로젝트는 YouTube의 주요 기능을 클론하여, 영상 목록 조회, 영상 상세 보기, 사용자 인터랙션(댓글, 좋아요/싫어요),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;반응형 UI 등을 구현한 웹 애플리케이션입니다. <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;실제 YouTube의 UI/UX를 참고하여 HTML, CSS, JavaScript, Bootstrap 등의 기술을 활용하였으며,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;유튜브 임베드 기능을 통해 실제 영상 재생 환경을 구성하였습니다.<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 3단계에 걸쳐 기능을 점진적으로 확장하며 클론 프로젝트를 완성하였고, GitHub에 버전 관리 및 배포를 함께 진행했습니다. </li>  <br/>
+    <li>주요 구현 내용: <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 메인 페이지 UI 구성 (네비게이션 바, 사이드바, 썸네일 카드 등)<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 메인 페이지 UI 구성 (네비게이션 바, 사이드바, 썸네일 카드 등)<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 영상 클릭 시 상세 페이지로 이동 및 유튜브 임베드 영상 재생<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 댓글 등록, 좋아요/싫어요 버튼 상태 반영 등 사용자 인터랙션 기능<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 반응형 재생 목록 디자인 구현 (선택)<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- URL 파라미터 처리 및 iframe 활용<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- GitHub에 소스 코드 관리 및 Netlify 등으로 결과물 배포<br/> </li>
   </section><br/>
 
   
@@ -98,7 +111,7 @@
       <li>5. Bootstrap5.0 활용한 반응형 웹 구현 </li>
       <li>6. 메인, 상세, 구독, 재생목록 페이지 구현 </li>
       <li>7. 상단 HEADER , SIDER, PROFILE MENU 구현 </li>
-      <li>8. 상단 햄버거 버튼 메뉴 노출, 미노출 구현 </li>        
+      <li>8. 상단 햄버거 버튼 메뉴 노출, 미노출 구현 </li> 
     </ul>
   </section><br/>
 
@@ -116,7 +129,7 @@
       <li><code>📁 index.html</code>: GitHub Pages 메인(리스트) 페이지</li>   
       <li><code>📁 youtube_list.html</code>: 메인(리스트) 페이지</li>  
       <li><code>📁 subscribe.html</code>: 구독 페이지</li>       
-      <li><code>📁 youtube_view.html</code>: 상세 페이지</li>     
+      <li><code>📁 video.html</code>: 상세 페이지</li>     
       <li><code>📁 img/</code>: 이미지 파일</li>
       <li><code>📁 css/</code>: Bootstrap 스타일시트</li>
       <li><code>📁 js/</code>: JavaScript 파일</li>
@@ -154,6 +167,7 @@ git clone https://github.com/sson77/CloneTube.git
 
 </body>
 </html>
+
 
 
 
