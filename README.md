@@ -16,7 +16,7 @@
   <section>
     <h2>📌주제</h2>
     <p>📺 유튜브 영상 클론 및 인터랙션 구현</p>
-    <p><a href="https://www.youtube.com/watch?v=BvZvuj72yzU"><img src="https://img.youtube.com/vi/BvZvuj72yzU/0.jpg"></a></p>
+    <p><a href="https://www.youtube.com/watch?v=BvZvuj72yzU"><img src="https://img.youtube.com/vi/BvZvuj72yzU/0.jpg" style="width:60%"></a></p>
   </section><br/>
   <section>
     <h2>📌요구사항</h2>
@@ -154,6 +154,7 @@ git clone https://github.com/sson77/CloneTube.git
 
 </body>
 </html>
+
 
 
 
