@@ -7,11 +7,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/start.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/start.js"></script>
 <!-- Navbar -->
 <nav class="navbar navbar-dark bg-dark px-3">
   <button class="btn text-white" type="button">
@@ -20,8 +20,9 @@
   <a class="navbar-brand" href="#" onclick="location.reload(); return false;">
     <span class="logo-text ms-3"><i class="bi bi-youtube text-danger"></i> YouTube</span>
   </a>
-  <form class="d-flex mx-auto" style="width: 40%;"  onsubmit="return search(event)">
-    <input id="searchInput" class="form-control search-bar rounded-start-pill" type="search" placeholder="검색" aria-label="Search">
+  <form class="d-flex mx-auto" style="width: 40%;" onsubmit="return search(event)">
+    <input id="searchInput" class="form-control search-bar rounded-start-pill" type="search" placeholder="검색"
+           aria-label="Search">
     <button class="btn btn-icon rounded-end-pill"><i class="bi bi-search"></i></button>
     <button class="btn btn-icon rounded-circle"><i class="bi bi-mic-fill"></i></button>
   </form>
@@ -40,7 +41,7 @@
             </div>
             <div>
               <div class="fw-bold">손산</div>
-              <div class="fw-bold" >milestone7712@gmail.com</div>
+              <div class="fw-bold">milestone7712@gmail.com</div>
               <a href="#" class="text-primary">채널 만들기</a>
             </div>
           </div>
@@ -88,7 +89,7 @@
       <hr>
       <h6>내 페이지 ></h6>
       <a href="#"><i class="fas fa-history"></i>&nbsp;시청 기록</a>
-      <a href="#"><i class="fas fa-list"></i>&nbsp;재생목록</a>
+      <a href="player_list.html"><i class="fas fa-list"></i>&nbsp;재생 목록</a>
       <a href="video.html?videoId=1"><i class="fas fa-video"></i>&nbsp;내 영상</a>
       <a href="#"><i class="fas fa-film"></i>&nbsp;내 영화</a>
       <a href="#"><i class="fas fa-clock"></i>&nbsp;나중에 본 동영상</a>
@@ -96,20 +97,58 @@
       <a href="#"><i class="fas fa-download"></i>&nbsp;오프라인 저장 동영상</a>
       <hr>
       <h6>구독</h6>
-      <a href="#"><i class="fas fa-user"></i>&nbsp;디글:Diggle</a>
-      <a href="#"><i class="fas fa-user"></i>&nbsp;SBS 뉴스</a>
+      <a href="#">
+        <img
+          src="https://yt3.googleusercontent.com/14-LcU9z8YjX-JKFBhqOK0H2SzJupGEJxtZwHmLXtbcpQQ1-YehNxiWim8SoLCDFEv6j2I-w=s160-c-k-c0x00ffffff-no-rj"
+          alt="디글" class="channel-icon">
+        &nbsp;디글:Diggle
+      </a>
+      <a href="#">
+        <img
+          src="https://yt3.googleusercontent.com/SqFZwlQcqLs4JMZd3lthkg79kCHi68eerNpkkahvEYSPWhm2afUNqFkbMC6J6JJcy9JJ_DzQ8w=s160-c-k-c0x00ffffff-no-rj"
+          alt="SBS 뉴스" class="channel-icon">
+        &nbsp;SBS 뉴스
+      </a>
+      <a href="#">
+        <img
+          src="https://yt3.googleusercontent.com/Gw2zuRWuMBkEsp6A7DmJXhhmAKB2zp3dCjtI1Ob03rmRylRGOcXe-RJMK4m0SwUuFWKz7J2s=s160-c-k-c0x00ffffff-no-rj"
+          alt="지식인사이드" class="channel-icon">
+        &nbsp;지식인사이드
+      </a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/5qDlUe2DmlOFjo81hrVLfzUtM7-1REmQoLvKzL1auFjA_zVSpR8gIIfjJErW0GG7C8yKtlnXIw=s160-c-k-c0x00ffffff-no-rj"
+        alt="교양이를 부탁해" class="channel-icon">&nbsp;교양이를 부탁해</a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/ytc/AIdro_l3SlR6xJhiGRDqLE5n4-r5cHCEKVMwUwX1cRbnx8LyM0w=s160-c-k-c0x00ffffff-no-rj"
+        alt="미미미누" class="channel-icon">&nbsp;미미미누</a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/FUlyMvQN86MsbezOIRNMvL4lgY2cBFRtZK6dtuXDYW5su7EKzUjNTSSoRjqnC2wNhQ3LzQ5KXA=s160-c-k-c0x00ffffff-no-rj"
+        alt="스튜디오혜이" class="channel-icon">&nbsp;스튜디오혜이 StudioHey</a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/ytc/AIdro_lDpgRioU6o64rO-vPjp7kglrygc3t8zudwKLfZsb4c=s160-c-k-c0x00ffffff-no-rj"
+        alt="퇴사한 이형" class="channel-icon">&nbsp;퇴사한 이형</a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/yrB3gaZ9L_v7n6B2L7orvaR98CM1Ud6jFN1D-2s09lTkuQduBkzvsn17r4ZLG7myKkLW4nqq=s160-c-k-c0x00ffffff-no-rj"
+        alt="내 친구 인사팀이야" class="channel-icon">&nbsp;내 친구 인사팀이야</a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/lfsu5nWA4uKEIQ0Dd8gBfiOtE2qHdFMHjFkDSOm-bXCJZQQiPr9XxFPbBAZiQ2wKPVGrvZpHwA=s160-c-k-c0x00ffffff-no-rj"
+        alt="파라과이맨" class="channel-icon">&nbsp;파라과이맨</a>
+      <a href="#"><img
+        src="https://yt3.ggpht.com/1OnvQ05N30R5TJctZq0gzM56qBAxGxur7Xb1ptbmAeg7hLTWQfwXVVP0aOMhkapp05wCd_Nc=s176-c-k-c0x00ffffff-no-rj-mo"
+        alt="가인지tV" class="channel-icon">&nbsp;가인지TV</a>
     </div>
+
     <!-- Main Content -->
     <div class="col-md-10 p-4">
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <!-- Video 1 -->
         <div class="col">
           <div class="video-thumbnail">
-            <a href="video.html?videoId=1">
+            <a href="video.html?videoId=56">
               <img src="img/image7.png" class="bg-img" alt="Video Thumbnail">
             </a>
             <div class="video-title">
-              <a href="video.html?videoId=1" title="🚢⚓어릴적 우리의 꿈을 해적으로 바꾼 원피스 코요태-우리의 꿈">🚢⚓어릴적
+              <a href="video.html?videoId=56" title="🚢⚓어릴적 우리의 꿈을 해적으로 바꾼 원피스 코요태-우리의 꿈">🚢⚓어릴적
                 우리의 꿈을 해적으로 바꾼 원피스
                 코요태-우리의 꿈</a>
             </div>
@@ -121,11 +160,11 @@
         <!-- Video 2 -->
         <div class="col">
           <div class="video-thumbnail">
-            <a href="video.html?videoId=1">
+            <a href="video.html?videoId=55">
               <img src="img/image8.png" class="bg-img" alt="Video Thumbnail">
             </a>
             <div class="video-title">
-              <a href="video.html?videoId=1" title="이스트소프트 신규 AI 검색 엔진 분석">이스트소프트 신규 AI 검색
+              <a href="video.html?videoId=55" title="이스트소프트 신규 AI 검색 엔진 분석">이스트소프트 신규 AI 검색
                 엔진 분석
               </a>
             </div>
@@ -137,11 +176,11 @@
         <!-- Video 3 -->
         <div class="col">
           <div class="video-thumbnail">
-            <a href="video.html?videoId=1">
+            <a href="video.html?videoId=54">
               <img src="img/image1.png" class="bg-img" alt="Video Thumbnail">
             </a>
             <div class="video-title">
-              <a href="video.html?videoId=1" title="50세 한국인의 실리콘밸리 도전기">50세 한국인의 실리콘밸리 도전기
+              <a href="video.html?videoId=54" title="50세 한국인의 실리콘밸리 도전기">50세 한국인의 실리콘밸리 도전기
               </a>
             </div>
             <div class="bottom-bar">
@@ -152,11 +191,11 @@
         <!-- Video 4 -->
         <div class="col">
           <div class="video-thumbnail">
-            <a href="https://youtu.be/RWb1EHmZBHg?si=Iui7hE9UECKsdHvl" title="5실리콘밸리와 한국? 실력차이는 없어요. '이것'만 다를 뿐">
+            <a href="video.html?videoId=53" title="5실리콘밸리와 한국? 실력차이는 없어요. '이것'만 다를 뿐">
               <img src="img/image2.png" class="bg-img" alt="Video Thumbnail">
             </a>
             <div class="video-title">
-              <a href="https://youtu.be/RWb1EHmZBHg?si=Iui7hE9UECKsdHvl" title="5실리콘밸리와 한국? 실력차이는 없어요. '이것'만 다를 뿐">실리콘밸리와
+              <a href="video.html?videoId=53"  title="5실리콘밸리와 한국? 실력차이는 없어요. '이것'만 다를 뿐">실리콘밸리와
                 한국? 실력차이는 없어요. '이것'만 다를 뿐
               </a>
             </div>
@@ -168,11 +207,11 @@
         <!-- Video 5 -->
         <div class="col">
           <div class="video-thumbnail">
-            <a href="https://youtu.be/c-p1r7nispQ?si=fdvn3NuG5lPBSbKC" title="27년차 실리콘밸리 개발자의 인생 이야기[한기용] 1부">
+            <a href="video.html?videoId=52" title="27년차 실리콘밸리 개발자의 인생 이야기[한기용] 1부">
               <img src="img/image3.png" class="bg-img" alt="Video Thumbnail">
             </a>
             <div class="video-title">
-              <a href="https://youtu.be/c-p1r7nispQ?si=fdvn3NuG5lPBSbKC" title="27년차 실리콘밸리 개발자의 인생 이야기[한기용] 1부">27년차
+              <a href="video.html?videoId=52" title="27년차 실리콘밸리 개발자의 인생 이야기[한기용] 1부">27년차
                 실리콘밸리 개발자의 인생 이야기[한기용] 1부
               </a>
             </div>
@@ -184,11 +223,11 @@
         <!-- Video 6 -->
         <div class="col">
           <div class="video-thumbnail">
-            <a href="https://youtu.be/Ux7p_L2U7dM?si=zilyT6jHRdqQdyYD" title="리얼밸리 살아남으려면 바퀴벌레한테도 배워야 한다">
+            <a href="video.html?videoId=51" title="리얼밸리 살아남으려면 바퀴벌레한테도 배워야 한다">
               <img src="img/image4.png" class="bg-img" alt="Video Thumbnail">
             </a>
             <div class="video-title">
-              <a href="https://youtu.be/Ux7p_L2U7dM?si=zilyT6jHRdqQdyYD" title="리얼밸리 살아남으려면 바퀴벌레한테도 배워야 한다">살아남으려면
+              <a href="video.html?videoId=51" title="리얼밸리 살아남으려면 바퀴벌레한테도 배워야 한다">살아남으려면
                 바퀴벌레한테도 배워야 한다
               </a>
             </div>
@@ -200,11 +239,11 @@
         <!-- Video 7 -->
         <div class="col">
           <div class="video-thumbnail">
-            <a href="https://youtu.be/4LCjdHjRMdM?feature=shared" title="실력있는 직원보다 중요한 '이것'">
-              <img src="img/image5.png" class="bg-img" alt="Video Thumbnail">
+            <a href="video.html?videoId=57" title="실력있는 직원보다 중요한 '이것'">
+              <img src="img/image5.png"  class="bg-img" alt="Video Thumbnail">
             </a>
             <div class="video-title">
-              <a href="https://youtu.be/4LCjdHjRMdM?feature=shared" title="실력있는 직원보다 중요한 '이것'">실력있는 직원보다 중요한 '이것'
+              <a href="video.html?videoId=57" title="실력있는 직원보다 중요한 '이것'">실력있는 직원보다 중요한 '이것'
               </a>
             </div>
             <div class="bottom-bar">
@@ -215,11 +254,11 @@
         <!-- Video 8 -->
         <div class="col">
           <div class="video-thumbnail">
-            <a href="https://youtu.be/BJffAD5Ga-U?feature=shared" title="직원이 실수 했을 때 절대 하면 안되는 것">
+            <a href="video.html?videoId=58" title="직원이 실수 했을 때 절대 하면 안되는 것">
               <img src="img/image6.png" class="bg-img" alt="Video Thumbnail">
             </a>
             <div class="video-title">
-              <a href="https://youtu.be/BJffAD5Ga-U?feature=shared" title="직원이 실수 했을 때 절대 하면 안되는 것">직원이 실수 했을 때 절대
+              <a href="video.html?videoId=58" title="직원이 실수 했을 때 절대 하면 안되는 것">직원이 실수 했을 때 절대
                 하면 안되는 것
               </a>
             </div>
@@ -231,11 +270,11 @@
         <!-- Video 9 -->
         <div class="col">
           <div class="video-thumbnail">
-            <a href="https://youtu.be/dFesH3lCO1k?si=XiDQlJ7gf57HguLK" title="실리콘밸리에서 혼자 잘하는 사람이 인정 못 받는 이유">
+            <a href="video.html?videoId=59" title="실리콘밸리에서 혼자 잘하는 사람이 인정 못 받는 이유">
               <img src="img/image9.png" class="bg-img" alt="Video Thumbnail">
             </a>
             <div class="video-title">
-              <a href="https://youtu.be/dFesH3lCO1k?si=XiDQlJ7gf57HguLK" title="실리콘밸리에서 혼자 잘하는 사람이 인정 못 받는 이유">실리콘밸리에서
+              <a href="video.html?videoId=59" title="실리콘밸리에서 혼자 잘하는 사람이 인정 못 받는 이유">실리콘밸리에서
                 혼자 잘하는 사람이 인정 못 받는 이유
               </a>
             </div>
@@ -247,13 +286,13 @@
         <!-- Video 10 -->
         <div class="col">
           <div class="video-thumbnail">
-            <a href="https://youtu.be/HBrJBeH5YmA?si=WMsTiMmkov0SWKeM"
+            <a href="video.html?videoId=60"
                title="도망치세요! 직접 해결하려 하지 마세요! 버티면 결국 '나만' 손해일 수도">
               <img src="img/image10.png" class="bg-img" alt="Video Thumbnail">
             </a>
 
             <div class="video-title">
-              <a href="https://youtu.be/HBrJBeH5YmA?si=WMsTiMmkov0SWKeM"
+              <a href="video.html?videoId=60"
                  title="도망치세요! 직접 해결하려 하지 마세요! 버티면 결국 '나만' 손해일 수도">도망치세요! 직접 해결하려 하지 마세요! 버티면 결국 '나만' 손해일 수도
               </a>
             </div>
@@ -265,12 +304,12 @@
         <!-- Video 11 -->
         <div class="col">
           <div class="video-thumbnail">
-            <a href="https://youtu.be/czaIXR0dYQM?si=mCv6GF1BZqhhh2dY" title="어떻게 압도적으로 팔 것인가">
+            <a href="video.html?videoId=61" title="어떻게 압도적으로 팔 것인가">
               <img src="img/image11.png" class="bg-img" alt="Video Thumbnail">
             </a>
 
             <div class="video-title">
-              <a href="https://youtu.be/czaIXR0dYQM?si=mCv6GF1BZqhhh2dY" title="어떻게 압도적으로 팔 것인가">압도적으로 팔릴 수 밖에 없는 세일즈 기술
+              <a href="video.html?videoId=61" title="어떻게 압도적으로 팔 것인가">압도적으로 팔릴 수 밖에 없는 세일즈 기술
                 한성자동차 윤미애이사
               </a>
             </div>
@@ -282,11 +321,11 @@
         <!-- Video 12 -->
         <div class="col">
           <div class="video-thumbnail">
-            <a href="https://youtu.be/8zzNBLj_FPM?si=hNZVNzmXEijJvdao" title="[손석희의 질문들] 손석희를 놀라게한 최재천의 이야기?">
+            <a href="video.html?videoId=62" title="[손석희의 질문들] 손석희를 놀라게한 최재천의 이야기?">
               <img src="img/image12.png" class="bg-img" alt="Video Thumbnail">
             </a>
             <div class="video-title">
-              <a href="https://youtu.be/8zzNBLj_FPM?si=hNZVNzmXEijJvdao" title="[손석희의 질문들] 손석희를 놀라게한 최재천의 이야기?">[손석희의
+              <a href="video.html?videoId=62" title="[손석희의 질문들] 손석희를 놀라게한 최재천의 이야기?">[손석희의
                 질문들] 손석희를 놀라게한 최재천의 이야기?
               </a>
             </div>
