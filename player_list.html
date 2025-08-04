@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Clone</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/start.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark px-3">
+  <button class="btn text-white" type="button">
+    <i class="bi bi-list" style="font-size: 1.5rem;"></i>
+  </button>
+  <a class="navbar-brand" href="#" onclick="location.reload(); return false;">
+    <span class="logo-text ms-3"><i class="bi bi-youtube text-danger"></i> YouTube</span>
+  </a>
+  <form class="d-flex mx-auto" style="width: 40%;" onsubmit="return search(event)">
+    <input id="searchInput" class="form-control search-bar rounded-start-pill" type="search" placeholder="검색"
+           aria-label="Search">
+    <button class="btn btn-icon rounded-end-pill"><i class="bi bi-search"></i></button>
+    <button class="btn btn-icon rounded-circle"><i class="bi bi-mic-fill"></i></button>
+  </form>
+  <div class="d-flex align-items-center">
+    <button class="btn btn-icon rounded-pill"><i class="bi bi-plus"></i> 만들기</button>
+    <button class="btn btn-icon"><i class="bi bi-bell"></i></button>
+    <div class="">
+      <button class="profile-circle ms-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        산
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end text-small">
+        <li class="dropdown-header">
+          <div class="d-flex align-items-center px-2 py-2">
+            <div class="profile-circle text-white fw-bold d-flex justify-content-center align-items-center me-3">
+              산
+            </div>
+            <div>
+              <div class="fw-bold">손산</div>
+              <div class="fw-bold">milestone7712@gmail.com</div>
+              <a href="#" class="text-primary">채널 만들기</a>
+            </div>
+          </div>
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-plus-circle me-2"></i> 채널 만들기</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i> Google 계정</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-exchange-alt me-2"></i> 계정 전환</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> 로그아웃</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-video me-2"></i> YouTube 스튜디오</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-bag me-2"></i> 구매 항목 및 멤버십</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-database me-2"></i> YouTube의 내 데이터</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-adjust me-2"></i> 디자인:&nbsp;기기 테마</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-language me-2"></i> 언어:&nbsp;한국어</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-ban me-2"></i> 제한모드:사용 안함</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-globe-asia me-2"></i> 위치:&nbsp;한국</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-keyboard me-2"></i> 단축키</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> 설정</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-question-circle me-2"></i> 고객센터</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-comment-dots me-2"></i> 의견 보내기</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2 sidebar">
+      <a href="youtube_list.html"> <i
+        class="fas fa-home"></i>&nbsp;홈</a>
+      <a href="#"> <i class="fas fa-bolt"></i>&nbsp;Shorts</a>
+      <a href="Subscribe.html"> <i class="fas fa-photo-video"></i>&nbsp;구독</a>
+      <a href="#"><i class="fas fa-music"></i>&nbsp;YouTube Music</a>
+      <hr>
+      <h6>내 페이지 ></h6>
+      <a href="#"><i class="fas fa-history"></i>&nbsp;시청 기록</a>
+      <a href="player_list.html"><i class="fas fa-list"></i>&nbsp;재생목록</a>
+      <a href="video.html?videoId=1"><i class="fas fa-video"></i>&nbsp;내 영상</a>
+      <a href="#"><i class="fas fa-film"></i>&nbsp;내 영화</a>
+      <a href="#"><i class="fas fa-clock"></i>&nbsp;나중에 본 동영상</a>
+      <a href="#"><i class="fas fa-thumbs-up"></i>&nbsp;좋아요 표시한 동영상</a>
+      <a href="#"><i class="fas fa-download"></i>&nbsp;오프라인 저장 동영상</a>
+      <hr>
+      <h6>구독</h6>
+      <a href="#">
+        <img
+          src="https://yt3.googleusercontent.com/14-LcU9z8YjX-JKFBhqOK0H2SzJupGEJxtZwHmLXtbcpQQ1-YehNxiWim8SoLCDFEv6j2I-w=s160-c-k-c0x00ffffff-no-rj"
+          alt="디글" class="channel-icon">
+        &nbsp;디글:Diggle
+      </a>
+      <a href="#">
+        <img
+          src="https://yt3.googleusercontent.com/SqFZwlQcqLs4JMZd3lthkg79kCHi68eerNpkkahvEYSPWhm2afUNqFkbMC6J6JJcy9JJ_DzQ8w=s160-c-k-c0x00ffffff-no-rj"
+          alt="SBS 뉴스" class="channel-icon">
+        &nbsp;SBS 뉴스
+      </a>
+      <a href="#">
+        <img
+          src="https://yt3.googleusercontent.com/Gw2zuRWuMBkEsp6A7DmJXhhmAKB2zp3dCjtI1Ob03rmRylRGOcXe-RJMK4m0SwUuFWKz7J2s=s160-c-k-c0x00ffffff-no-rj"
+          alt="지식인사이드" class="channel-icon">
+        &nbsp;지식인사이드
+      </a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/5qDlUe2DmlOFjo81hrVLfzUtM7-1REmQoLvKzL1auFjA_zVSpR8gIIfjJErW0GG7C8yKtlnXIw=s160-c-k-c0x00ffffff-no-rj"
+        alt="교양이를 부탁해" class="channel-icon">&nbsp;교양이를 부탁해</a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/ytc/AIdro_l3SlR6xJhiGRDqLE5n4-r5cHCEKVMwUwX1cRbnx8LyM0w=s160-c-k-c0x00ffffff-no-rj"
+        alt="미미미누" class="channel-icon">&nbsp;미미미누</a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/FUlyMvQN86MsbezOIRNMvL4lgY2cBFRtZK6dtuXDYW5su7EKzUjNTSSoRjqnC2wNhQ3LzQ5KXA=s160-c-k-c0x00ffffff-no-rj"
+        alt="스튜디오혜이" class="channel-icon">&nbsp;스튜디오혜이 StudioHey</a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/ytc/AIdro_lDpgRioU6o64rO-vPjp7kglrygc3t8zudwKLfZsb4c=s160-c-k-c0x00ffffff-no-rj"
+        alt="퇴사한 이형" class="channel-icon">&nbsp;퇴사한 이형</a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/yrB3gaZ9L_v7n6B2L7orvaR98CM1Ud6jFN1D-2s09lTkuQduBkzvsn17r4ZLG7myKkLW4nqq=s160-c-k-c0x00ffffff-no-rj"
+        alt="내 친구 인사팀이야" class="channel-icon">&nbsp;내 친구 인사팀이야</a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/lfsu5nWA4uKEIQ0Dd8gBfiOtE2qHdFMHjFkDSOm-bXCJZQQiPr9XxFPbBAZiQ2wKPVGrvZpHwA=s160-c-k-c0x00ffffff-no-rj"
+        alt="파라과이맨" class="channel-icon">&nbsp;파라과이맨</a>
+      <a href="#"><img
+        src="https://yt3.ggpht.com/1OnvQ05N30R5TJctZq0gzM56qBAxGxur7Xb1ptbmAeg7hLTWQfwXVVP0aOMhkapp05wCd_Nc=s176-c-k-c0x00ffffff-no-rj-mo"
+        alt="가인지tV" class="channel-icon">&nbsp;가인지TV</a>
+    </div>
+
+    <!-- Main Content -->
+  <div class="col-md-10 p-4">
+    <H2>&nbsp;재생 목록</H2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <!-- Video 1 -->
+      <div class="col">
+        <div class="video-thumbnail">
+          <a href="video.html?videoId=42">
+            <img src="https://i.ytimg.com/vi/gK5MBHDXw24/sddefault.jpg" class="bg-img" alt="Video Thumbnail">
+          </a>
+          <div class="video-title">
+            <a href="video.html?videoId=42" title="">🫡꼰대? 퇴사? 우리가 좋은 리더가 되기 힘든 이유 (ft.사이먼 시넥) | 📚Start with why
+            </a>
+          </div>
+          <div class="bottom-bar">
+            <strong>조승연의 탐구생활</strong> <br/> 조회수 38만회 ・ 1년 전<br>
+          </div>
+        </div>
+      </div>
+      <!-- Video 2 -->
+      <div class="col">
+        <div class="video-thumbnail">
+          <a href="video.html?videoId=43">
+            <img src="https://i.ytimg.com/vi/PVIrUc4gqqE/sddefault.jpg" class="bg-img" alt="Video Thumbnail">
+          </a>
+          <div class="video-title">
+            <a href="video.html?videoId=43" title="'롱폼특강' 당신의 꿈이 실패하는 이유 (feat. 부모님과 선배들의 '독이 든' 조언">'롱폼특강' 당신의 꿈이 실패하는
+              이유 (feat. 부모님과 선배들의 '독이 든' 조언
+            </a>
+          </div>
+          <div class="bottom-bar">
+            <strong>타일러 볼까요?</strong> <br/> 조회수 51만회 ・ 3일 전<br>
+          </div>
+        </div>
+      </div>
+      <!-- Video 3 -->
+      <div class="col">
+        <div class="video-thumbnail">
+          <a href="video.html?videoId=44">
+            <img src="https://i.ytimg.com/vi/pithla1NnJg/sddefault.jpg" class="bg-img" alt="Video Thumbnail">
+          </a>
+          <div class="video-title">
+            <a href="video.html?videoId=44" title="[#에이콕] 사랑했던 남자와의 이별💔부터 정자은행에서 기증받기👶까지! 비혼모 결심한 사유리의 full 스토리">[#에이콕]
+              사랑했던 남자와의 이별💔부터 정자은행에서 기증받기👶까지! 비혼모 결심한 사유리의 full 스토리
+            </a>
+          </div>
+          <div class="bottom-bar">
+            <strong>채널에이드: 채널A Drama & Enjoy</strong> <br/> 조회수 72만회 ・ 1일 전<br>
+          </div>
+        </div>
+      </div>
+      <!-- Video 4 -->
+      <div class="col">
+        <div class="video-thumbnail">
+          <a href="video.html?videoId=45">
+            <img src="https://i.ytimg.com/vi/uq2mSVwkp-c/sddefault.jpg" class="bg-img" alt="Video Thumbnail">
+          </a>
+          <div class="video-title">
+            <a href="video.html?videoId=45" title="영알못이 미국의사가 되기 위해 택한 영어공부 방법">영알못이 미국의사가 되기 위해 택한 영어공부 방법
+            </a>
+          </div>
+          <div class="bottom-bar">
+            <strong>파라과이맨</strong> <br/> 조회수 35만회 ・ 15일 전<br>
+          </div>
+        </div>
+      </div>
+      <!-- Video 5 -->
+      <div class="col">
+        <div class="video-thumbnail">
+          <a href="video.html?videoId=46">
+            <img src="https://i.ytimg.com/vi/YPLlBaUO5P0/sddefault.jpg" class="bg-img" alt="Video Thumbnail">
+          </a>
+          <div class="video-title">
+            <a href="video.html?videoId=46"
+               title="[#유퀴즈온더블럭] 공부 대신 수박밭 갈던 소년이 우주공학 박사가 되기까지🧠 러시아 유학을 거쳐 우주로 향한 기적 같은 이야기🚀">[#유퀴즈온더블럭] 공부 대신 수박밭 갈던
+              소년이 우주공학 박사가 되기까지🧠 러시아 유학을 거쳐 우주로 향한 기적 같은 이야기🚀
+            </a>
+          </div>
+          <div class="bottom-bar">
+            <strong>
+              디글 클래식 :Diggle Classic
+            </strong> <br/> 조회수 31만회 ・ 25일 전<br>
+          </div>
+        </div>
+      </div>
+      <!-- Video 6 -->
+      <div class="col">
+        <div class="video-thumbnail">
+          <a href="video.html?videoId=47">
+            <img src="https://i.ytimg.com/vi/Mp2Y6wqW8HY/sddefault.jpg" class="bg-img" alt="Video Thumbnail">
+          </a>
+          <div class="video-title">
+            <a href="video.html?videoId=47" title="졸지에 미혼모가 된 女아나운서, 친자확인까지 거부하는 전남친?! [무엇이든 물어보살]">졸지에 미혼모가 된 女아나운서,
+              친자확인까지 거부하는 전남친?! [무엇이든 물어보살]
+            </a>
+          </div>
+          <div class="bottom-bar">
+            <strong>KBS JOY</strong> <br/> 조회수 23만회 ・ 5일 전<br>
+          </div>
+        </div>
+      </div>
+      <!-- Video 7 -->
+      <div class="col">
+        <div class="video-thumbnail">
+          <a href="video.html?videoId=48">
+            <img src="https://i.ytimg.com/vi/LC3TWc_j6n4/sddefault.jpg" class="bg-img" alt="Video Thumbnail">
+          </a>
+          <div class="video-title">
+            <a href="video.html?videoId=48" title="[정보처리기사 필기 절대족보] 핵심이론 5과목(정보 시스템 구축 관리)">[정보처리기사 필기 절대족보] 핵심이론 5과목(정보
+              시스템 구축 관리)
+            </a>
+          </div>
+          <div class="bottom-bar">
+            <strong>이기적 영진닷컴</strong> <br/> 조회수 133만회 ・ 2개월 전<br>
+          </div>
+        </div>
+      </div>
+      <!-- Video 8 -->
+      <div class="col">
+        <div class="video-thumbnail">
+          <a href="video.html?videoId=49">
+            <img src="https://i.ytimg.com/vi/Oxjmb9rAsn8/sddefault.jpg" class="bg-img" alt="Video Thumbnail">
+          </a>
+          <div class="video-title">
+            <a href="video.html?videoId=49" title="[정보처리기사 필기 절대족보] 핵심이론 4과목(프로그래밍 언어 활용)">[정보처리기사 필기 절대족보] 핵심이론
+              4과목(프로그래밍 언어 활용)
+            </a>
+          </div>
+          <div class="bottom-bar">
+            <strong>이기적 영진닷컴</strong> <br/> 조회수 114만회 ・ 1개월 전<br>
+          </div>
+        </div>
+      </div>
+      <!-- Video 9 -->
+      <div class="col">
+        <div class="video-thumbnail">
+          <a href="video.html?videoId=50">
+            <img src="https://i.ytimg.com/vi/KLj1U03HCNI/sddefault.jpg" class="bg-img" alt="Video Thumbnail">
+          </a>
+          <div class="video-title">
+            <a href="video.html?videoId=50" title="[정보처리기사 필기 절대족보] 핵심이론 3과목(데이터베이스 구축)">[정보처리기사 필기 절대족보] 핵심이론
+              3과목(데이터베이스 구축)
+            </a>
+          </div>
+          <div class="bottom-bar">
+            <strong>이기적 영진닷컴</strong> <br/> 조회수 124만회 ・ 3개월 전<br>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
+
