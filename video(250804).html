@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube CloneTube</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?ver=1.0">
+  <link rel="stylesheet" href="css/sub_style.css">
+</head>
+<body>
+<!-- jQuery (필요하다면) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap Bundle (Popper 포함) - 한 번만 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- 사용자 커스텀 스크립트 -->
+<script src="js/start.js"></script>
+
+<!-- Bootstrap 5의 그리드 시스템과 컴포넌트이 반응형 웹 구현
+    그리드 시스템 사용 (.row, .col-lg-8, .col-lg-4)
+    container-fluid 사용
+-->
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark px-3">
+  <button class="btn text-white custom-hamburger" type="button" style="margin-left: -18px;" onclick="show_Menu();">
+    <i class="bi bi-list" style="font-size: 1.5rem;"></i>
+  </button>
+  <a class="navbar-brand" href="youtube_list.html">
+    <span class="logo-text ms-3"><i class="bi bi-youtube text-danger"></i> YouTube</span>
+  </a>
+  <form class="d-flex mx-auto" style="width: 40%;" onsubmit="return search(event)">
+    <input id="searchInput" class="form-control search-bar rounded-start-pill" type="search" placeholder="검색"
+           aria-label="Search">
+    <button class="btn btn-icon rounded-end-pill"><i class="bi bi-search"></i></button>
+    <button class="btn btn-icon rounded-circle"><i class="bi bi-mic-fill"></i></button>
+  </form>
+  <div class="d-flex align-items-center">
+    <button class="btn btn-icon rounded-pill"><i class="bi bi-plus"></i> 만들기</button>
+    <button class="btn btn-icon"><i class="bi bi-bell"></i></button>
+    <div class="">
+      <button class="profile-circle ms-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        산
+      </button>
+      <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end text-small">
+        <li class="dropdown-header">
+          <div class="d-flex align-items-center px-2 py-2">
+            <div class="profile-circle text-white fw-bold d-flex justify-content-center align-items-center me-3">
+              산
+            </div>
+            <div>
+              <div class="fw-bold">손산</div>
+              <div class="fw-bold">milestone7712@gmail.com</div>
+              <a href="#" class="text-primary">채널 만들기</a>
+            </div>
+          </div>
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-plus-circle me-2"></i> 채널 만들기</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i> Google 계정</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-exchange-alt me-2"></i> 계정 전환</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> 로그아웃</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-video me-2"></i> YouTube 스튜디오</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-bag me-2"></i> 구매 항목 및 멤버십</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-database me-2"></i> YouTube의 내 데이터</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-adjust me-2"></i> 디자인:&nbsp;기기 테마</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-language me-2"></i> 언어:&nbsp;한국어</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-ban me-2"></i> 제한모드:사용 안함</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-globe-asia me-2"></i> 위치:&nbsp;한국</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-keyboard me-2"></i> 단축키</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> 설정</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-question-circle me-2"></i> 고객센터</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fas fa-comment-dots me-2"></i> 의견 보내기</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid" id="menu1">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2 sidebar2">
+      <a href="youtube_list.html" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;"> <i
+        class="fas fa-home"></i>&nbsp;</a>
+      <a href="#"> <i class="fas fa-bolt"></i>&nbsp;</a>
+      <a href="Subscribe.html"> <i class="fas fa-photo-video"></i>&nbsp;</a>
+      <a href="#"><i class="fas fa-music"></i>&nbsp;</a>
+      <hr>
+      <h6></h6>
+      <a href="#"><i class="fas fa-history"></i>&nbsp;</a>
+      <a href="player_list.html"><i class="fas fa-list"></i>&nbsp;</a>
+      <a href="video.html?videoId=1"><i class="fas fa-video"></i>&nbsp;</a>
+      <a href="#"><i class="fas fa-film"></i>&nbsp;</a>
+      <a href="#"><i class="fas fa-clock"></i>&nbsp;</a>
+      <a href="#"><i class="fas fa-thumbs-up"></i>&nbsp;</a>
+      <a href="#"><i class="fas fa-download"></i></a>
+      <hr>
+      <h6></h6>
+      <a href="#">
+        <img
+          src="https://yt3.googleusercontent.com/14-LcU9z8YjX-JKFBhqOK0H2SzJupGEJxtZwHmLXtbcpQQ1-YehNxiWim8SoLCDFEv6j2I-w=s160-c-k-c0x00ffffff-no-rj"
+          alt="디글" class="channel-icon">
+      </a>
+      <a href="#">
+        <img
+          src="https://yt3.googleusercontent.com/SqFZwlQcqLs4JMZd3lthkg79kCHi68eerNpkkahvEYSPWhm2afUNqFkbMC6J6JJcy9JJ_DzQ8w=s160-c-k-c0x00ffffff-no-rj"
+          alt="SBS 뉴스" class="channel-icon">
+      </a>
+      <a href="#">
+        <img
+          src="https://yt3.googleusercontent.com/Gw2zuRWuMBkEsp6A7DmJXhhmAKB2zp3dCjtI1Ob03rmRylRGOcXe-RJMK4m0SwUuFWKz7J2s=s160-c-k-c0x00ffffff-no-rj"
+          alt="지식인사이드" class="channel-icon">
+      </a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/5qDlUe2DmlOFjo81hrVLfzUtM7-1REmQoLvKzL1auFjA_zVSpR8gIIfjJErW0GG7C8yKtlnXIw=s160-c-k-c0x00ffffff-no-rj"
+        alt="교양이를 부탁해" class="channel-icon"></a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/ytc/AIdro_l3SlR6xJhiGRDqLE5n4-r5cHCEKVMwUwX1cRbnx8LyM0w=s160-c-k-c0x00ffffff-no-rj"
+        alt="미미미누" class="channel-icon"></a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/FUlyMvQN86MsbezOIRNMvL4lgY2cBFRtZK6dtuXDYW5su7EKzUjNTSSoRjqnC2wNhQ3LzQ5KXA=s160-c-k-c0x00ffffff-no-rj"
+        alt="스튜디오혜이" class="channel-icon"></a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/yrB3gaZ9L_v7n6B2L7orvaR98CM1Ud6jFN1D-2s09lTkuQduBkzvsn17r4ZLG7myKkLW4nqq=s160-c-k-c0x00ffffff-no-rj"
+        alt="내 친구 인사팀이야" class="channel-icon"></a>
+      <a href="#"><img
+        src="https://yt3.googleusercontent.com/lfsu5nWA4uKEIQ0Dd8gBfiOtE2qHdFMHjFkDSOm-bXCJZQQiPr9XxFPbBAZiQ2wKPVGrvZpHwA=s160-c-k-c0x00ffffff-no-rj"
+        alt="파라과이맨" class="channel-icon"></a>
+      <a href="#"><img
+        src="https://yt3.ggpht.com/1OnvQ05N30R5TJctZq0gzM56qBAxGxur7Xb1ptbmAeg7hLTWQfwXVVP0aOMhkapp05wCd_Nc=s176-c-k-c0x00ffffff-no-rj-mo"
+        alt="가인지tV" class="channel-icon"></a>
+    </div>
+  </div>
+</div>
+<!-- 2. Main Layout -->
+<div class="container-fluid mt-3 px-3" style="margin-left:70px;">
+  <div class="row justify-content-center">
+
+    <!-- 2.1 Main Video Area -->
+    <div class="col-lg-8 video-section">
+      <!-- 직접 스타일로 높이 조절 -->
+      <div class="video-wrapper rounded shadow overflow-hidden mb-3"
+           style="position: relative; width: 100%; padding-top: 50%;">
+        <!--<iframe id="videoIframe" src="" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        </iframe> -->
+        <iframe id="videoIframe" src="" allowfullscreen></iframe>
+      </div>
+      <h5 id="videoTitle">AI 총책임자에 97년생 앉힌 메타... 마크 저커버그의 도박수 될까?</h5>
+
+      <div class="channel-box">
+
+        <!-- 왼쪽: 프로필 + 이름 -->
+        <div class="channel-info">
+          <img src="/img/vmg.jpg" id="profileImg" alt="프로필" class="channel-profile"/>
+          <div class="channel-meta">
+            <div class="name" id="videoChannel">
+              비디오머그 - VIDEOMUG <i class="fas fa-check-circle text-secondary" style="font-size: 0.8rem;"></i>
+            </div>
+            <div class="subscribers" id="subscribers">구독자 179만 명</div>
+          </div>
+          <div>
+            <button class="btn-subscribe">구독</button>
+          </div>
+        </div>
+        <!-- 중간: 버튼 그룹 -->
+        <div class="btn-group-small d-flex flex-wrap gap-2">
+          <button class="btn btn-light" id="likeBtn"><i class="fas fa-thumbs-up me-1"></i><span
+            id="likeCount">1000</span></button>
+          <button class="btn btn-dark text-white" id="dislikeBtn"><i class="fas fa-thumbs-down"></i></button>
+          <button class="btn btn-dark text-white"><i class="fas fa-share"></i> 공유</button>
+          <button class="btn btn-dark text-white"><i class="fas fa-download"></i> 오프라인 저장</button>
+          <button class="btn btn-dark text-white"><i class="fas fa-bookmark"></i> 저장</button>
+          <button class="btn btn-dark text-white"><i class="fas fa-ellipsis"></i></button>
+        </div>
+      </div>
+      <!-- Description -->
+      <div class="mt-3">
+        <p class="highlight" id="videoMeta">조회수 108,595회 · 2025. 7. 30. · 2개 제품</p>
+        <p id="videoChannel"></p>
+
+        <div class="product" id="videoDescription">
+          <img src="img/metabook.png" alt="product 1">
+          <div class="product-info">
+            <p><strong>메타 페이스북: 플랫폼 제품</strong></p>
+            <p>₩29,700<br><a href="https://link.coupang.com/re/AFYOUTUBE1">link.coupang.com/re/AFYOUTUBE1</a></p>
+          </div>
+        </div>
+
+        <!--    <div class="product" >
+               <img src="img/AGI.png" alt="product 2">
+               <div class="product-info">
+                 <p><strong>AGI의 시대: 인간을 초월한 인공지능</strong></p>
+                 <p>₩19,800<br><a href="https://link.coupang.com/re/AFYOUTUBE2">link.coupang.com/re/AFYOUTUBE2</a></p>
+               </div>
+             </div>
+
+             <p>
+               안녕하세요. 데이터를 만들고 다루는 다양한 기업입니다. 대다수 기업들의 2분기 실적 발표 시즌이 왔습니다. 빅테크 기업들을 필두로 미국 증시가 연일 상승세를 이어가고 있죠. 그 영향일까요?
+               개인투자자들의 미국 주식 보유율이 늘어나고 있다는 조사도 나왔습니다. <br><br>
+
+               이런 가운데 최근 가장 논란을 끄는 건 단연 ‘메타’가 아닐까 싶어요. 최근 해외 빅테크 뉴스를 살펴보면 메타 소식이 가득합니다. 메타가 오픈AI에서 인재를 대거 빼왔다는 이야기, 이번엔 심지어
+               구글에서까지 메타로 갔다는 등... 이런 소식이 최근 계속 이어지고 있습니다.
+             </p>
+
+             <p>
+               오늘 오그랩에서는 메타에서 이렇게 힘든 돈을 쏟아부으면서도 AI 인재를 쓸어모으는 것인지, 또 마크 저커버그가 꿈꾸는 메타의 미래는 무엇인지 5가지 그래프를 통해 살펴보겠습니다.
+             </p>
+
+             <p><strong>📌 구성</strong></p>
+             <p class="timestamp">00:00 🟦 오프닝</p>
+             <p class="timestamp">01:21 🟩 AI 기업으로 탈바꿈하면 유지는... 주가는 쾌속 상승</p>
+             <p class="timestamp">05:24 🟨 AI 퍼센트 외쳤지만, 성과제도는 제자리?</p>
+             <p class="timestamp">08:26 🟪 인재에서 꽃피는 메타... AI 리더에 여성만 없었다</p>
+             <p class="timestamp">12:26 🟥 슈퍼랩 꾸린 메타, 초지능 AI에선 여전히 가능할까?</p>
+
+             <p><strong>📚 참고자료</strong></p>
+             <ul>
+               <li>Big Tech’s big R&D bill | Trendline</li>
+               <li>Artificial Analysis Intelligence Index | Artificial Analysis</li>
+               <li>State of AI Report compute Index | State of AI Report 2025</li>
+               <li>Detailed list of all 44 people in Meta's Superintelligence team | Deedy [@deedydas] X</li>
+               <li>Meta FY24 result | Meta</li>
+               <li>Mark Zuckerberg announces creation of Meta Superintelligence Labs. Read the memo | CNBC</li>
+             </ul>
+
+             <p>#비디오머그 #메타 #저커버그 #AI #AGI #미국주식 #VMG #오그랩</p>
+
+             <p>싱크끝고 더알고싶을때, 톡플레이(구독) 👉 <a href="https://premium.sbs.co.kr">https://premium.sbs.co.kr</a></p>
+
+             <p>
+               비디오머그의 공식 링크:<br>
+               ▶ 홈페이지 : <a href="https://n.sbs.co.kr/mugTube">https://n.sbs.co.kr/mugTube</a><br>
+               ▶ 홈 : <a href="https://videomug.co.kr">https://videomug.co.kr</a><br>
+               ▶ 페이스북 : <a href="#">/videomug_sbs</a><br>
+               ▶ 트위터 : <a href="#">/videomug_sbs</a>
+             </p>
+
+             <div class="footer">
+               Copyright ⓒ SBS. All rights reserved. 무단 전재, 재배포 및 AI학습 이용 금지
+             </div>-->
+      </div>
+      <!-- Comments -->
+      <div class="comment-box">
+        <h6>댓글<span id="count">3</span>개</h6>
+        <input type="text" id="commentInput" class="form-control mb-2" placeholder="댓글을 입력하세요"/>
+        <!-- 댓글 1 -->
+        <div id="commentsContainer">
+          <div class="comment">
+            <div class="avatar">O</div>
+            <div class="comment-body">
+              <div class="user-info">@OLDBOY-e5e <span class="timestamp">1일 전</span></div>
+              <div class="text">스포츠스타들도 수천억 계약 하는데, 지금 최고 수준의 개발자 인재라면 딱히 이상하진 않은 듯.</div>
+              <div class="actions">
+                <span class="like">👍 <span class="like-count">102</span></span>
+                <span class="reply">답글</span>
+              </div>
+            </div>
+          </div>
+          <!-- 댓글 2 -->
+          <div class="comment">
+            <div class="avatar">K</div>
+            <div class="comment-body">
+              <div class="user-info">@KIM3839 <span class="timestamp">1일 전</span></div>
+              <div class="text">이야... 영상 퀄리티 작살이네요. 논리적 흐름과 균형도 좋고, 디자인도 통일성 잡혀있고, 사운드도 잘 쓰고, 중간 중간에 센스있는 모션그래픽도...
+              </div>
+              <div class="actions">
+                <span class="like">👍 <span class="like-count">108</span></span>
+                <span class="reply">답글</span>
+              </div>
+            </div>
+          </div>
+          <!-- 댓글 3 -->
+          <div class="comment">
+            <div class="avatar">사장</div>
+            <div class="comment-body">
+              <div class="user-info">@송사장-v1y <span class="timestamp">1일 전</span></div>
+              <div class="text">엄청난 연봉으로 인재를 끌어 모을 수 있는 메타가 정말 부럽네요</div>
+              <div class="actions">
+                <span class="like">👍 <span class="like-count">21</span></span>
+                <span class="reply">답글</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 2.2 Sidebar (추천 영상) -->
+    <div class="col-lg-4 sidebar">
+      <!-- 상단 버튼 -->
+      <div class="top-buttons">
+        <button class="active">모두</button>
+        <button>비디오머그 - VIDEOMUG 제공</button>
+        <button>비즈니스 뉴스</button>
+        <button>관련 콘텐츠</button>
+      </div>
+      <!-- 추천 영상 카드 반복 시작 -->
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=2'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/AYzVkjG-W-U/mqdefault.jpg"
+               class="me-2" alt="챗GPT 이렇게 쓰면 뇌 기능이 저하됩니다" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">챗GPT 이렇게 쓰면 뇌 기능이 저하됩니다</p>
+            <small>장동선의 궁금한 뇌 · 조회수 8.4만회 · 6일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=3'" style="cursor:pointer;">
+          <img
+            src="https://i.ytimg.com/vi/eYx-aUkXFBc/mqdefault.jpg"
+            class="me-2" alt="상류층과 서민층의 차원" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">상류층과 서민층의 차원이 다른 문</p>
+            <small>tvN Joy · 조회수 14만회 · 3일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=4'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/H2OLJY0iqNU/mqdefault.jpg"
+               class="me-2" alt="트럼프가 6개월 간 감춘 진짜 돈의 흐름" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">트럼프가 6개월 간 감춘 진짜 돈의 흐름</p>
+            <small>비디오머그 · 조회수 130만회 · 1개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=5'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/w2c1XclG4U0/mqdefault.jpg"
+               class="me-2" alt="팔란티어 AI 방산 기업 위험한 질주" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">팔란티어 AI 방산 기업 위험한 질주</p>
+            <small>비디오머그 · 조회수 55만회 · 4개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=6'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/rSS5yM74zeo/mqdefault.jpg"
+               class="me-2" alt="스탠포드 AI 시대 창의력 훈련법" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">스탠포드가 가르치는 AI 시대 창의력 훈련법</p>
+            <small>EO Korea · 조회수 76만회 · 2개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=7'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/We6QG55wvac/mqdefault.jpg"
+               class="me-2" alt="폭발물 테러로 꼬리빼기까지 산산조각" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">폭발물 테러로 꼬리빼기까지 산산조각</p>
+            <small>디글 클래식 · 조회수 9만회 · 1개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=8'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/JPQj-uLC--g/mqdefault.jpg"
+               class="me-2" alt="팀장 하기 싫어요ㅜ 직장인 승진 회피하는 진짜 이유" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">팀장 하기 싫어요ㅜ 직장인 승진 회피하는 진짜 이유</p>
+            <small>스브스뉴스 · 조회수 33만회 · 2개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=9'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/OSAfKWkAUNU/mqdefault.jpg"
+               class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=10'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/rSS5yM74zeo/mqdefault.jpg"
+               class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">돈 없는 사람이 운 좋아지는 유일한 방법</p>
+            <small>세바시 인생질문 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=11'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/flAinFscVmM/mqdefault.jpg"
+               class="me-2" alt="돈 없는 사람이 운 좋아지는 유일한 방법" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">한국인이 반드시 가져야 할 방식과 태도</p>
+            <small>디글 · 조회수 37만회 · 3주 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=12'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/qgk7ro45ZPI/mqdefault.jpg"
+               class="me-2" alt="[유퀴즈온더블럭] 힘들어도 '이렇게' 읽으셔야 합니다" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">[#유퀴즈온더블럭] 힘들어도 '이렇게' 읽으셔야 합니다 | 서울대 필...</p>
+            <small>딩글 :Diggle · 조회수 19만회 · 12일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=13'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/10XF_KijZLA/mqdefault.jpg"
+               class="me-2" alt="‘멸탑 바사삭’ MZ 언어까지 학습한 챗GPT" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">‘멸탑 바사삭’ MZ 언어까지 학습한 챗GPT...5년뒤 7억3천만명 쓰게 된다?</p>
+            <small>MBCNEWS · 조회수 12만회 · 4일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=14'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/0lJj6IHIYMM/mqdefault.jpg"
+               class="me-2" alt="백만 유튜브 채널 가진 CEO의 회사는 왜 망했을까?" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">백만 유튜브 채널 가진 CEO의 회사는 왜 망했을까?</p>
+            <small>스브스뉴스 SUBUSUNEWS · 조회수 15만회 · 4일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=15'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/10XF_KijZLA/mqdefault.jpg"
+               class="me-2" alt="급증하는 멀티탭 화재, 진짜 원인은 따로 있다?" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">급증하는 멀티탭 화재, 진짜 원인은 따로 있다? | 크랩</p>
+            <small>크랩 KLAB · 조회수 27만회 · 4일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=16'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/Yn8H7LokKdQ/mqdefault.jpg"
+               class="me-2" alt="“이건 정말 바보 같은 거예요” 40~50대가 직장에서 살아남는 법"
+               style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">“착각하지 마세요. 이건 정말 바보 같은 거예요...” 40~50대가 직장에서 살아남는 법</p>
+            <small>똑똑한 하루 · 조회수 19만회 · 7일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=17'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/9uos2eMwUbg/mqdefault.jpg"
+               class="me-2" alt="일단 시작하고 행동해야 뇌가 바뀐다!" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">일단 시작하고 행동해야 뇌가 바뀐다! | 행동의 뇌과학</p>
+            <small>차이나는 클라스 · 조회수 7.1만회 · 3일 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=18'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/KbGuc1RrJb4/mqdefault.jpg"
+               class="me-2" alt="일본은, 뉴스케일파워 원전주 급등… 원전株 주목" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">일본은, 뉴스케일파워 원전주 급등… 원전株 주목 다시 돌아온다?</p>
+            <small>비디오머그 VIDEOMUG · 조회수 23만회 · 1개월 전</small>
+          </div>
+        </div>
+      </div>
+      <div class="card p-2 mb-2 position-relative custom-height">
+        <div class="position-absolute top-0 end-0 p-2">
+          <span style="cursor: pointer;">⋮</span> <!-- or use an icon library -->
+        </div>
+        <div class="d-flex" onclick="window.location.href='video.html?videoId=19'" style="cursor:pointer;">
+          <img src="https://i.ytimg.com/vi/9jAPvcrCYCQ/mqdefault.jpg"
+               class="me-2" alt="AI 과학자 장동선 박사의 슬픈 과거 이야기" style="width: 168px; height: 95px; object-fit: cover;">
+          <div>
+            <p class="mb-1">AI 과학자 장동선 박사의 슬픈 과거 이야기… AI 시대에서 우리가 할 일은?</p>
+            <small>오은영의 족집게 강의 · 조회수 4.6만회 · 2일 전</small>
+          </div>
+        </div>
+      </div>
+      <!-- 추천 영상 카드 반복 끝 -->
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  let  likeCount = 1000;
+  const likeDisplay = document.getElementById('likeCount');
+  const dislikeBtn = document.getElementById('dislikeBtn');
+
+
+  function formatCount(count) {
+    if (count >= 1000) {
+      return (count / 1000).toFixed(1) + '천';
+    } else {
+      return count.toString();
+    }
+  }
+
+  // 싫어요 클릭 시 좋아요 감소
+  dislikeBtn.addEventListener('click', () => {
+    if (likeCount >= 500) {
+      likeCount -= 1;
+      likeDisplay.textContent = formatCount(likeCount);
+    }
+    else {
+      likeCount -= 1;
+      likeDisplay.textContent = formatCount(likeCount);
+    }
+  });
+
+
+  // 좋아요 클릭 시 좋아요 증가
+  likeBtn.addEventListener('click', () => {
+    if (likeCount >= 500) {
+      likeCount += 1;
+      likeDisplay.textContent = formatCount(likeCount);
+    }
+    else {
+      likeCount += 1;
+      likeDisplay.textContent = formatCount(likeCount);
+    }
+  });
+
+
+   const commentInput = document.getElementById('commentInput');
+   const commentsContainer = document.getElementById('commentsContainer');
+   const countSpan = document.getElementById('count');
+
+// 댓글 추가 함수
+function addComment(text) {
+ if (!text.trim()) return; // 빈 문자열 무시
+
+ // 댓글 개수 업데이트
+ let count = parseInt(countSpan.textContent);
+ countSpan.textContent = count + 1;
+
+ // 댓글 요소 생성
+ const commentDiv = document.createElement('div');
+ commentDiv.classList.add('comment');
+
+ // 임시 사용자명과 '방금 전' 텍스트
+ const username = '@사용자-SSON';
+ const timestamp = '방금 전';
+
+ // 프로필 아이콘 문자 (예: 사용자명 첫 글자, 없으면 '@')
+ const avatarChar = username.charAt(1) || '@';
+
+ commentDiv.innerHTML = `
+   <div class="avatar2">${avatarChar}</div>
+   <div class="comment-body">
+     <div>
+       <span class="user-name">${username}</span>
+       <span class="timestamp">${timestamp}</span>
+     </div>
+     <div class="comment-text">${text}</div>
+     <div class="comment-info">
+       <span class="like">👍 1</span>
+       <span class="reply">답글</span>
+     </div>
+   </div>
+ `;
+
+ // 하단에 댓글 추가
+ commentsContainer.appendChild(commentDiv);
+}
+
+// 엔터 키 입력시 댓글 추가
+commentInput.addEventListener('keydown', e => {
+ if (e.key === 'Enter') {
+   addComment(commentInput.value);
+   commentInput.value = '';
+ }
+});
+
+   // URL 파라미터에서 videoId 가져오기
+ const params = new URLSearchParams(window.location.search);
+ const videoId = params.get('videoId');
+
+ // 예시 데이터 (실제 서비스 시 API로 대체)
+ const videoData = {
+     '1': {
+     youtubeId: 'HHmie_P3ykY?si=-QpDfmaeNuKiom5K',
+     title: 'AI 총책임자에 97년생 앉힌 메타... 마크 저커버그의 도박수 될까',
+     channel: '비디오로그',
+     views: 123456,
+     uploadDate: '2025-07-30',
+     profileImg : '' ,
+     description: '안녕하세요. 데이터를 만들고 다루는 다양한 기업입니다. 대다수 기업들의 2분기 실적 발표 시즌이 왔습니다. 빅테크 기업들을 필두로 미국 증시가 연일 상승세를 이어가고 있죠. 그 영향일까요? 개인투자자들의 미국 주식 보유율이 늘어나고 있다는 조사도 나왔습니다.'
+   },
+  '2': {
+    youtubeId: 'AYzVkjG-W-U?si=RLDBeAzAk8gqnqqa',
+    title: '챗GPT 이렇게 쓰면 뇌 기능이 저하됩니다',
+    channel: '장동선의 궁금한 뇌',
+    views: 84000,
+    uploadDate: '6일 전',
+    profileImg : 'https://yt3.ggpht.com/7qN_cRE24GvrR4ERe5Gx5tVINotFln0X-N2aGx_WBKZZGK30uSzP77c09HISbpWVaanYEPYm=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: '#chatgpt #AI #뇌과학 '
+  },
+  '3': {
+    youtubeId: 'eYx-aUkXFBc',
+    title: '상류층과 서민층의 차원이 다른 문',
+    channel: 'tvN Joy',
+    views: 140000,
+    uploadDate: '3일 전',
+    profileImg : 'https://yt3.googleusercontent.com/bpSGI1weZmTuMvzXz0k9vwRDugXHTCDPc9qlih808OH88OKUHxhK6uzBGxbjzzQ5czMav9zVOQ=s160-c-k-c0x00ffffff-no-rj' ,
+    description: '#미래수업 #끌올 #티빙에서스트리밍'
+  },
+  '4': {
+    youtubeId: 'H2OLJY0iqNU',
+    title: '트럼프가 6개월 간 감춘 진짜 돈의 흐름',
+    channel: '비디오머그',
+    views: 1300000,
+    uploadDate: '1개월 전',
+    profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_nS0rgqjkxQTSDqhYgpzp9FvBzlxnReQ4FOXFn8pL16NyI=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: '국채 #스테이블코인 #교양이를부탁해'
+  },
+  '5': {
+    youtubeId: 'w2c1XclG4U0',
+    title: '팔란티어 AI 방산 기업 위험한 질주',
+    channel: '비디오머그',
+    views: 550000,
+    uploadDate: '4개월 전',
+    profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_nS0rgqjkxQTSDqhYgpzp9FvBzlxnReQ4FOXFn8pL16NyI=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: '한동안 미국 주식 이야기를 하다 보면 엔비디아와 함께 빠지지 않았던 종목이 있습니다. 바로 팔란티어죠. 국민연금조차도 엔비디아를 팔고 매수한 팔란티어. 팔란티어가 국방, 군사 AI 기업이라는 얘기는 들었는데 정확히 어떤 기업인건지, 도대체 왜 이렇게 잘 나가는 걸까요? 또 AI가 효율성을 높여주기에, 생산성 측면에서 좋긴 좋은데, 이걸 군대와 무기에 활용하는 게 정말 괜찮은 걸까요?'
+  },
+  '6': {
+    youtubeId: 'rSS5yM74zeo',
+    title: '스탠포드가 가르치는 AI 시대 창의력 훈련법',
+    channel: 'EO Korea',
+    views: 760000,
+    uploadDate: '2개월 전',
+    profileImg : 'https://yt3.ggpht.com/DTlNqq8P3QPYDLmtLBHqCA5ko6XqMTrE2YW3pIekFYxyNy4BPdSemAngpTlDDBmi-VVjpj5kHKE=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: '스탠포드 D스쿨에서 AI와 창의성을 가르치는 제레미 어틀리 교수를 만났습니다. 그는 대부분의 사람들이 AI의 잠재력을 제대로 활용하지 못하고 있다고 말합니다. 그 이유는 바로 우리가 AI를 대하는 방식에 있다고 하는데요. 사고방식을 조금만 전환하면, 같은 AI로도 전혀 다른 결과물을 낼 수 있다고 강조합니다.'
+  },
+  '7': {
+    youtubeId: 'We6QG55wvac',
+    title: '폭발물 테러로 꼬리빼기까지 산산조각',
+    channel: '디글 클래식',
+    views: 90000,
+    uploadDate: '1개월 전',
+    profileImg : 'https://yt3.ggpht.com/14-LcU9z8YjX-JKFBhqOK0H2SzJupGEJxtZwHmLXtbcpQQ1-YehNxiWim8SoLCDFEv6j2I-w=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: '#유퀴즈온더블럭 #유퀴즈 #유재석 #조세호 매주 수요일 저녁 8시 45분 tvN에서!'
+  },
+  '8': {
+    youtubeId: 'JPQj-uLC--g',
+    title: '팀장 하기 싫어요ㅜ 직장인 승진 회피하는 진짜 이유',
+    channel: '스브스뉴스',
+    views: 330000,
+    uploadDate: '2개월 전',
+    profileImg : 'https://yt3.ggpht.com/FU9VlpWi9XWL51ZCv7Swert83uk17EOc43mCtb32Jtrq5LbeasNLKQTowXzgkt2MQGTErJTkvA=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: '승진하기 싫다는 요즘 직장인들 과연 2030 직장인만의 현실일까요?'
+  },
+  '9': {
+    youtubeId: 'OSAfKWkAUNU',
+    title: '돈 없는 사람이 운 좋아지는 유일한 방법',
+    channel: '세바시 인생질문',
+    views: 370000,
+    uploadDate: '3주 전',
+    profileImg : 'https://yt3.ggpht.com/V7bIll6G9hgS5KRxJ119Lz9EGKv7JwYNAzCjE_-eEHwI-sQPS4cIgNwt8oK23Kr0FCXit9GfvQ=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: ''
+  },
+  '10': {
+    youtubeId: 'rSS5yM74zeo',
+    title: '돈 없는 사람이 운 좋아지는 유일한 방법',
+    channel: '세바시 인생질문',
+    views: 370000,
+    uploadDate: '3주 전',
+    profileImg : 'https://yt3.ggpht.com/V7bIll6G9hgS5KRxJ119Lz9EGKv7JwYNAzCjE_-eEHwI-sQPS4cIgNwt8oK23Kr0FCXit9GfvQ=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: ''
+  },
+  '11': {
+    youtubeId: 'flAinFscVmM',
+    title: '한국인이 반드시 가져야 할 방식과 태도',
+    channel: '디글',
+    views: 370000,
+    uploadDate: '3주 전',
+    profileImg : 'https://yt3.ggpht.com/m4J2Rpz6CwcqAKtqjOuvTjCXBDbORywU1TIQlo4j49LPMClAbt_ugICQ4r2ONwWxWUv39PtR=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: ''
+  },
+  '12': {
+    youtubeId: 'qgk7ro45ZPI',
+    title: '[#유퀴즈온더블럭] 힘들어도 \'이렇게\' 읽으셔야 합니다 | 서울대 필...',
+    channel: '딩글 :Diggle',
+    views: 190000,
+    uploadDate: '12일 전',
+    profileImg : 'https://yt3.ggpht.com/m4J2Rpz6CwcqAKtqjOuvTjCXBDbORywU1TIQlo4j49LPMClAbt_ugICQ4r2ONwWxWUv39PtR=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: ''
+  },
+  '13': {
+    youtubeId: '10XF_KijZLA',
+    title: '‘멸탑 바사삭’ MZ 언어까지 학습한 챗GPT...5년뒤 7억3천만명 쓰게 된다?',
+    channel: 'MBCNEWS',
+    views: 120000,
+    uploadDate: '4일 전',
+    profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_nKpBrT7zzqTfdlfUHzw60wMU5KqV-kBmiFjU9dvMI8ePo=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: ''
+  },
+  '14': {
+    youtubeId: '0lJj6IHIYMM',
+    title: '백만 유튜브 채널 가진 CEO의 회사는 왜 망했을까?',
+    channel: '스브스뉴스 SUBUSUNEWS',
+    views: 150000,
+    uploadDate: '4일 전',
+    profileImg : 'https://yt3.ggpht.com/FU9VlpWi9XWL51ZCv7Swert83uk17EOc43mCtb32Jtrq5LbeasNLKQTowXzgkt2MQGTErJTkvA=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: ''
+  },
+  '15': {
+    youtubeId: '10XF_KijZLA',
+    title: '급증하는 멀티탭 화재, 진짜 원인은 따로 있다? | 크랩',
+    channel: '크랩 KLAB',
+    views: 270000,
+    uploadDate: '4일 전',
+    profileImg : 'https://yt3.ggpht.com/qNPX5L53No3XO5G5TjZF0w3LplTVX9gJyv4BsVyqz6MolUgi-nfSzWF_5tRPsWDU_9tKcOk0qg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: ''
+  },
+  '16': {
+    youtubeId: 'Yn8H7LokKdQ',
+    title: '“착각하지 마세요. 이건 정말 바보 같은 거예요...” 40~50대가 직장에서 살아남는 법',
+    channel: '똑똑한 하루',
+    views: 190000,
+    uploadDate: '7일 전',
+    profileImg : 'https://yt3.ggpht.com/qNPX5L53No3XO5G5TjZF0w3LplTVX9gJyv4BsVyqz6MolUgi-nfSzWF_5tRPsWDU_9tKcOk0qg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: ''
+  },
+  '17': {
+    youtubeId: '9uos2eMwUbg',
+    title: '일단 시작하고 행동해야 뇌가 바뀐다! | 행동의 뇌과학',
+    channel: '차이나는 클라스',
+    views: 71000,
+    uploadDate: '3일 전',
+    profileImg : 'https://yt3.googleusercontent.com/mnF9SLZKRsx5EU6XjGIi2Y__qs8gFdwe4V4bnWRPRElKHKZTygK4pDcuOe7x3i5iKfaU9glq=s160-c-k-c0x00ffffff-no-rj' ,
+    description: ''
+  },
+  '18': {
+    youtubeId: 'KbGuc1RrJb4',
+    title: '일본은, 뉴스케일파워 원전주 급등… 원전株 주목 다시 돌아온다?',
+    channel: '비디오머그 VIDEOMUG',
+    views: 230000,
+    uploadDate: '1개월 전',
+    profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_nS0rgqjkxQTSDqhYgpzp9FvBzlxnReQ4FOXFn8pL16NyI=s176-c-k-c0x00ffffff-no-rj-mo' ,
+    description: ''
+  },
+  '19': {
+    youtubeId: '9jAPvcrCYCQ',
+    title: 'AI 과학자 장동선 박사의 슬픈 과거 이야기… AI 시대에서 우리가 할 일은?',
+    channel: '오은영의 족집게 강의',
+    views: 46000,
+    uploadDate: '2일 전',
+    profileImg : 'https://yt3.googleusercontent.com/3Wu4J_3hwOm0ApDrIDbTon64jfXlEqS-eU4vDWNF9ULIsuAd-b9OGaR4Ff6l7vHGUqX9WV8dxg=s160-c-k-c0x00ffffff-no-rj' ,
+    description: ''
+  },
+  '20': {
+ youtubeId: 'aBcDeFgHiJk',
+ title: '실리콘밸리 개발자의 하루 루틴 공개! 생산성을 3배 높이는 비결은? 🚀',
+ channel: 'REAL Valley',
+ views: 38500,
+ uploadDate: '1일 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_n_ug3Fhi-kvdbMpKg6wCdKTWbfs7RGRPpWnbVqIVOqjg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '실리콘밸리에서 실제로 일하는 개발자의 루틴을 따라가 봤습니다. 집중력을 높이는 시간관리 노하우부터 커피 한 잔의 의미까지! 당신의 일상이 바뀔지도 모릅니다.'
+},
+'21': {
+ youtubeId: 'LmNoPqRsTu',
+ title: '전 구글 엔지니어가 말하는 “퇴사 후 후회한 딱 한 가지”',
+ channel: 'REAL Valley',
+ views: 52700,
+ uploadDate: '3일 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_n_ug3Fhi-kvdbMpKg6wCdKTWbfs7RGRPpWnbVqIVOqjg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '구글을 떠나 스타트업에 합류한 전직 엔지니어가 퇴사 후 겪은 현실적인 고민과 단 하나의 후회를 솔직하게 털어놓습니다. 이직을 고민 중이라면 반드시 참고하세요.'
+},
+
+'22': {
+ youtubeId: 'VwXyZaBcDe',
+ title: 'ChatGPT가 말하는 AI 시대의 생존 전략 (feat. 인간의 역할)',
+ channel: '오은영의 족집게 강의',
+ views: 61200,
+ uploadDate: '5일 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_n_ug3Fhi-kvdbMpKg6wCdKTWbfs7RGRPpWnbVqIVOqjg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: 'AI가 급속도로 발전하는 시대, 우리는 무엇을 해야 살아남을 수 있을까요? ChatGPT와 전문가의 대화를 통해 인간의 가능성과 방향을 짚어봅니다.'
+},
+
+'23': {
+ youtubeId: 'FgHiJkLmNo',
+ title: '미국과 한국의 스타트업 차이, 창업자들이 꼭 알아야 할 점',
+ channel: 'EO',
+ views: 43800,
+ uploadDate: '4일 전',
+ profileImg : 'https://yt3.googleusercontent.com/DTlNqq8P3QPYDLmtLBHqCA5ko6XqMTrE2YW3pIekFYxyNy4BPdSemAngpTlDDBmi-VVjpj5kHKE=s160-c-k-c0x00ffffff-no-rj' ,
+ description: '실리콘밸리에서 창업한 한국인 CEO의 인터뷰를 통해 미국과 한국 스타트업의 차이점과, 글로벌 시장을 노리는 창업자들이 주의해야 할 점을 들어봅니다.'
+},
+'24': {
+ youtubeId: 'XpQrStUvWx',
+ title: '실력 있는 직원보다 중요한 것은? 조직이 성장하는 진짜 비결',
+ channel: '김미경TV',
+ views: 83500,
+ uploadDate: '6일 전',
+ profileImg : 'https://yt3.ggpht.com/1OnvQ05N30R5TJctZq0gzM56qBAxGxur7Xb1ptbmAeg7hLTWQfwXVVP0aOMhkapp05wCd_Nc=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '“우리 직원은 아마추어처럼 일하고 있습니까?” 실력보다 중요한 태도와 팀워크의 본질을 짚어보는 리더십 강의.'
+},
+
+'25': {
+ youtubeId: 'YzAbCdEfGh',
+ title: '직원이 실수했을 때 절대 하면 안 되는 행동',
+ channel: '정철의 사람살이',
+ views: 67200,
+ uploadDate: '5일 전',
+ profileImg : 'https://yt3.ggpht.com/1OnvQ05N30R5TJctZq0gzM56qBAxGxur7Xb1ptbmAeg7hLTWQfwXVVP0aOMhkapp05wCd_Nc=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '리더가 직원의 실수를 대하는 방식이 조직 문화를 결정합니다. 감정적 반응이 아닌, 신뢰를 키우는 방법은 무엇일까요?'
+},
+
+'26': {
+ youtubeId: 'IjKlMnOpQr',
+ title: '실리콘밸리에서 혼자 잘해봤자? 인정받지 못하는 이유',
+ channel: 'REAL Valley',
+ views: 58800,
+ uploadDate: '6일 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_n_ug3Fhi-kvdbMpKg6wCdKTWbfs7RGRPpWnbVqIVOqjg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '인스타그램 수석 엔지니어가 말하는 “혼자 잘하는 개발자”가 실리콘밸리에서 환영받지 못하는 이유와 팀워크의 진정한 가치.'
+},
+
+'27': {
+ youtubeId: 'StUvWxYzAb',
+ title: '도망치세요! 직접 해결하려 하지 마세요! 버티면 결국 나만 손해일 수도...',
+ channel: '비즈니스 인사이트',
+ views: 74500,
+ uploadDate: '4일 전',
+ profileImg : 'https://yt3.ggpht.com/YGoipYJXfQJ2nzTOEb7BRirLbj3VVC87a9NjDLqu-qz-Fq51UogD_vvH2cJlGjR0pPRj7rHX=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '회사 분위기를 망치는 결정적 요인! 특정 유형의 동료가 조직에 미치는 영향과 그에 대한 현명한 대처법을 소개합니다.'
+},
+
+'28': {
+ youtubeId: 'CdEfGhIjKl',
+ title: '압도적으로 팔릴 수밖에 없는 세일즈 기술',
+ channel: 'KMA LEADERS FORUM',
+ views: 41200,
+ uploadDate: '6일 전',
+ profileImg : 'https://yt3.googleusercontent.com/eB1jBnpa8Tt9uZI2-qUmhEE4sPVLAFMVEyaOng3vKwHvSWrGssjYcDWak7K2dHV1Ej9oK2TpVw=s160-c-k-c0x00ffffff-no-rj' ,
+ description: '윤미애 한성자동차 이사가 전하는 세일즈 실전 전략! 고객을 사로잡는 말 한마디와 설득력 있는 흐름의 기술을 전격 공개.'
+},
+
+'29': {
+ youtubeId: 'MnOpQrStUv',
+ title: '손석희를 놀라게 한 최재천의 철학? 양심의 본질을 묻다',
+ channel: 'QGROUND',
+ views: 98300,
+ uploadDate: '7일 전',
+ profileImg : 'https://yt3.googleusercontent.com/iWdVWGvxd7gDmSygI16XZB22DwnDgh2IR0SOGXnClj9NrpRPR2nxI7gj24jtZSKwN6HxkOHPeQ=s160-c-k-c0x00ffffff-no-rj' ,
+ description: '생물학자 최재천 교수와 손석희의 진지한 대화. 인간의 본성과 양심, 그리고 사회가 나아가야 할 방향에 대한 통찰.'
+},
+'30': {
+ youtubeId: 'GhIjKlMnOp',
+ title: '“아무리 똑똑해도…” 한국인이 구글에서 승진 못하는 이유',
+ channel: '기업분석 연구소',
+ views: 123000,
+ uploadDate: '8일 전',
+ profileImg : 'https://yt3.ggpht.com/1OnvQ05N30R5TJctZq0gzM56qBAxGxur7Xb1ptbmAeg7hLTWQfwXVVP0aOMhkapp05wCd_Nc=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '구글 인사담당자가 말하는 충격적인 이유. 능력만으로는 부족한 진짜 이유는 무엇일까? 한국인의 조직문화 적응 문제를 심층 분석합니다.'
+},
+
+'31': {
+ youtubeId: 'QrStUvWxYz',
+ title: '의외로 많이 당한다는 가스라이팅 수법, 이렇게 구분하세요',
+ channel: '프로파일러 이윤호',
+ views: 110000,
+ uploadDate: '7일 전',
+ profileImg : '' ,
+ description: '“이런 말 하는 사람 100% 가스라이팅!” 심리학자와 프로파일러가 실제 사례를 통해 가스라이팅 수법을 분석하고 대처법을 알려드립니다.'
+},
+
+'32': {
+ youtubeId: 'AbCdEfGhIj',
+ title: '진짜 성격은 얼굴에 드러난다? 성격 분석의 과학적 근거',
+ channel: '김경일의 인간탐구',
+ views: 97000,
+ uploadDate: '6일 전',
+ profileImg : '' ,
+ description: '김경일 교수와 함께 알아보는 얼굴 표정, 행동 패턴을 통해 드러나는 인간의 성격. 과학적 심리 분석으로 보는 새로운 관점.'
+},
+
+'33': {
+ youtubeId: 'KlMnOpQrSt',
+ title: '14년차 개발자가 밝히는 억대 연봉과 AI 위기의 진실',
+ channel: '개발자 인터뷰',
+ views: 89000,
+ uploadDate: '8일 전',
+ profileImg : '' ,
+ description: '배민, 쿠팡, 네이버 등 4대 IT기업 경험자들이 말하는 진짜 연봉 구조, 실무 현실, 그리고 AI 시대 개발자의 생존 전략까지 낱낱이 공개합니다.'
+},
+
+'34': {
+ youtubeId: 'UvWxYzAbCd',
+ title: '사람을 만나면 밥부터 먹고 보세요 – 감춰둔 본성이 보인다?',
+ channel: '유시민의 사람탐구',
+ views: 78000,
+ uploadDate: '7일 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_nzDiiB_tGgULwTj3gcLmCs2stz1ZpOPaoRXHPjplsMlQ=s160-c-k-c0x00ffffff-no-rj' ,
+ description: '유시민 작가가 전하는 인간관계의 핵심: 밥상머리에서 드러나는 진짜 모습은 무엇일까? 사람 보는 눈을 기르는 통찰을 담은 이야기.'
+},
+
+'35': {
+ youtubeId: 'EfGhIjKlMn',
+ title: '전부 털어간다! 최악의 해킹 “이것” 눌러 막으세요',
+ channel: '해커의 경고',
+ views: 134000,
+ uploadDate: '6일 전',
+ profileImg : '' ,
+ description: '스마트폰과 유심 해킹의 최신 수법을 공개합니다. 무심코 누른 링크 하나로 모든 것이 털릴 수 있습니다. 지금 바로 방어법을 확인하세요.'
+},
+'36': {
+ youtubeId: 'OpQrStUvWx',
+ title: '눈 이렇게 하면 시력 확 밝아집니다 (영양제X 수술X)',
+ channel: '건강학개론',
+ views: 153000,
+ uploadDate: '9일 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_n_ug3Fhi-kvdbMpKg6wCdKTWbfs7RGRPpWnbVqIVOqjg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '영양제나 수술 없이 시력 개선이 가능하다고? 안과 교수가 직접 말하는 생활 속 실천법으로 시력 회복의 가능성을 확인해보세요.'
+},
+
+'37': {
+ youtubeId: 'YzAbCdEfGh',
+ title: '가격은 같은데 10배 더 맛있는 고기 고르는 법!',
+ channel: '40년차 셰프의 노하우',
+ views: 122000,
+ uploadDate: '8일 전',
+ profileImg : '' ,
+ description: '같은 돈 주고 사도 맛은 천차만별?! 고기 전문가가 알려주는 육질 판별 꿀팁으로 집에서도 맛집 퀄리티를 즐기세요.'
+},
+
+'38': {
+ youtubeId: 'IjKlMnOpQr',
+ title: 'AI와 대결한 이세돌, 그 후의 이야기',
+ channel: '명강의 풀버전',
+ views: 189000,
+ uploadDate: '10일 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_nzDiiB_tGgULwTj3gcLmCs2stz1ZpOPaoRXHPjplsMlQ=s160-c-k-c0x00ffffff-no-rj' ,
+ description: '세기의 대결 그 이후, 바둑기사 이세돌이 털어놓는 인간 vs AI의 실체와 자신의 변화. 인간다움의 가치를 다시 묻는 인터뷰.'
+},
+
+'39': {
+ youtubeId: 'StUvWxYzAb',
+ title: '코딩만 하는 사람은 대체 1순위이죠 – 조코딩의 팟캐스트 #5',
+ channel: '조코딩',
+ views: 74000,
+ uploadDate: '9일 전',
+ profileImg : '' ,
+ description: '개발자 커리어의 현실과 진로, 그리고 왜 "코딩만" 하면 안 되는지 조코딩이 직접 들려주는 인사이트 가득한 토크쇼.'
+},
+
+'40': {
+ youtubeId: 'CdEfGhIjKl',
+ title: '이직만 10번, 구글 수석 디자이너의 커리어 조언',
+ channel: 'REAL Valley',
+ views: 86500,
+ uploadDate: '10일 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_n_ug3Fhi-kvdbMpKg6wCdKTWbfs7RGRPpWnbVqIVOqjg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '커리어의 갈림길에서 방황하는 사람들을 위한 실전 팁! 구글·애플 등 글로벌 기업을 거친 디자이너의 조언이 담긴 현실 강의.'
+},
+
+'41': {
+ youtubeId: 'MnOpQrStUv',
+ title: '똑똑하게 이직하는 기준 – 메타 인사담당자의 솔직한 조언',
+ channel: '일잘러 썰백',
+ views: 98100,
+ uploadDate: '9일 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_lDpgRioU6o64rO-vPjp7kglrygc3t8zudwKLfZsb4c=s160-c-k-c0x00ffffff-no-rj' ,
+ description: '넷플릭스, 틱톡, 메타를 거친 인사담당자가 말하는 진짜 이직 기준. 경력 포트폴리오 관리부터 인터뷰 전략까지 깔끔하게 정리해드립니다.'
+},
+'42': {
+ youtubeId: 'gK5MBHDXw24',
+ title: '🫡꼰대? 퇴사? 우리가 좋은 리더가 되기 힘든 이유 (ft.사이먼 시넥)',
+ channel: '조승연의 탐구생활',
+ views: 98100,
+ uploadDate: '9일 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_lXoW3ALo9m0kgpIq60EDChhqBRx4OE-i7gBWKDKENKYg=s160-c-k-c0x00ffffff-no-rj' ,
+ description: '오늘은 비즈니스 리더십으로 유명한 미국의 사이먼 시넥 작가와 함께 좋은 리더가 되기 위한 방법은 무엇인지 분위기와 실적을 다 잡는 팀을 만드려면 어떻게 해야되는지에 대해 이야기해봤습니다📚'
+},
+'43': {
+ youtubeId: 'PVIrUc4gqqE',
+ title: '롱폼특강 당신의 꿈이 실패하는 이유 (feat. 부모님과 선배들의 독이 든 조언',
+ channel: '타일러 볼까요?',
+ views: 98100,
+ uploadDate: '9일 전',
+ profileImg : 'https://yt3.ggpht.com/Esn7tLDUPJiKuLC6fcsXvdbQTcZefkRA5hgScGfvh-u0WDTLGAIlO4AV5_OOl8iUdytYg9fq_2k=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '우리는 꿈을 이루는 법에 대해 너무나 많은 조언을 듣지만, 그 조언들이 오히려 우리를 준비의 덫에 가두거나 자신감을 꺾어버리진 않았나요? 타일러는 이 영상에서 A+B=C라는 경직된 성공 공식이 왜 더 이상 통하지 않는지, 그리고 AI와 팬데믹처럼 예측 불가능한 시대를 살아가는 우리에게 왜 실험하는 삶의 태도가 유일한 대안인지 이야기합니다. 당신의 소중한 꿈, 더 이상 낡은 공식에 가두지 마세요.'
+},
+'44': {
+ youtubeId: 'pithla1NnJg',
+ title: '[#에이콕] 사랑했던 남자와의 이별💔부터 정자은행에서 기증받기👶까지! 비혼모 결심한 사유리의 full 스토리',
+ channel: '채널에이드: 채널A Drama & Enjoy',
+ views: 98100,
+ uploadDate: '9일 전',
+ profileImg : 'https://yt3.ggpht.com/RKFiTHhCIToBang-MlAKN3Y7toDZ5Gwgv4dyxgBbYZ5VAlSU0u-t8EO92085QIQivjpHKxClnQ=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '편집자가 콕한 클립 ▶[절친 토큐멘터리 4인용식탁] 54회 (2024-09-16)'
+},
+'45': {
+ youtubeId: 'uq2mSVwkp-c',
+ title: '영알못이 미국의사가 되기 위해 택한 영어공부 방법',
+ channel: '파라과이맨',
+ views: 98100,
+ uploadDate: '9일 전',
+ profileImg : 'https://yt3.ggpht.com/lfsu5nWA4uKEIQ0Dd8gBfiOtE2qHdFMHjFkDSOm-bXCJZQQiPr9XxFPbBAZiQ2wKPVGrvZpHwA=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: 'Boston'
+},
+'46': {
+ youtubeId: 'YPLlBaUO5P0',
+ title: '[#유퀴즈온더블럭] 공부 대신 수박밭 갈던 소년이 우주공학 박사가 되기까지🧠 러시아 유학을 거쳐 우주로 향한 기적 같은 이야기🚀',
+ channel: '디글 클래식 Diggle Classic',
+ views: 98100,
+ uploadDate: '12일 전',
+ profileImg : 'https://yt3.ggpht.com/LIRDgU59ID6x9CqOQQR5TO9WsaenXRWOwD5kj4pwY4mz24hRW6qxIiKZl1JSso-u6auqakRj0g=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '#유퀴즈온더블럭 #유퀴즈 #유재석 #조세호 매주 수요일 저녁 8시 45분 tvN에서!'
+},
+'47': {
+ youtubeId: 'Mp2Y6wqW8HY',
+ title: '졸지에 미혼모가 된 女아나운서, 친자확인까지 거부하는 전남친?! [무엇이든 물어보살] | KBS Joy 240122 방송',
+ channel: 'KBS JOY',
+ views: 98100,
+ uploadDate: '9일 전',
+ profileImg : 'https://yt3.ggpht.com/LIRDgU59ID6x9CqOQQR5TO9WsaenXRWOwD5kj4pwY4mz24hRW6qxIiKZl1JSso-u6auqakRj0g=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '남친과 행복한 연애를 하던 도중 찾아온 새 생명 결혼 준비하던 와중에 갑작스러운 남친의 태도 돌변! 결혼, 아이 모두 무효로 하잔 말에 충격을 심하게 받았다는데...'
+},
+'48': {
+ youtubeId: 'LC3TWc_j6n4',
+ title: '[정보처리기사 필기 절대족보] 핵심이론 5과목(정보 시스템 구축 관리)',
+ channel: '이기적 영진닷컴',
+ views: 98100,
+ uploadDate: '15일 전',
+ profileImg : 'https://yt3.ggpht.com/qU9hb1Vcj4kf-4P4ORsWGRkKqzQ2I-4F58Wgrph_NH402Sx--_tFeoiR3UMN5FWtf_y4xEopDg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '이 동영상은 [이기적 정보처리기사 필기 절대족보] 도서 내용을 바탕으로 제작되었습니다.'
+},
+'49': {
+ youtubeId: 'Oxjmb9rAsn8',
+ title: '[정보처리기사 필기 절대족보] 핵심이론 4과목(프로그래밍 언어 활용)',
+ channel: '이기적 영진닷컴',
+ views: 98100,
+ uploadDate: '15일 전',
+ profileImg : 'https://yt3.ggpht.com/qU9hb1Vcj4kf-4P4ORsWGRkKqzQ2I-4F58Wgrph_NH402Sx--_tFeoiR3UMN5FWtf_y4xEopDg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '이 동영상은 [이기적 정보처리기사 필기 절대족보] 도서 내용을 바탕으로 제작되었습니다.'
+},
+'50': {
+ youtubeId: 'KLj1U03HCNI',
+ title: '[정보처리기사 필기 절대족보] 핵심이론 3과목(데이터베이스 구축)',
+ channel: '이기적 영진닷컴',
+ views: 98100,
+ uploadDate: '15일 전',
+ profileImg : 'https://yt3.ggpht.com/qU9hb1Vcj4kf-4P4ORsWGRkKqzQ2I-4F58Wgrph_NH402Sx--_tFeoiR3UMN5FWtf_y4xEopDg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '이 동영상은 [이기적 정보처리기사 필기 절대족보] 도서 내용을 바탕으로 제작되었습니다.'
+},
+'51': {
+ youtubeId: '_DCSvDJ5sa4',
+ title: '살아남으려면 바퀴벌레한테도 배워야 한다',
+ channel: '리얼밸리',
+ views: 230000,
+ uploadDate: '5일 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_n_ug3Fhi-kvdbMpKg6wCdKTWbfs7RGRPpWnbVqIVOqjg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '실리콘밸리에서 살아남은 창업가가 말하는 생존 전략과 태도에 관한 이야기입니다.'
+},
+'52': {
+ youtubeId: 'c-p1r7nispQ',
+ title: '27년차 실리콘밸리 개발자가 20대로 돌아간다면 하지 않을 것들',
+ channel: 'Real Vally',
+ views: 730000,
+ uploadDate: '25일 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_n_ug3Fhi-kvdbMpKg6wCdKTWbfs7RGRPpWnbVqIVOqjg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '개발 경력 27년의 베테랑이 후배 개발자들에게 전하는 진심 어린 조언.'
+},
+'53': {
+ youtubeId: 'RWb1EHmZBHg',
+ title: '실리콘밸리와 한국? 실력 차이는 없어요. \'이것\'만 다를 뿐',
+ channel: 'Real Vally',
+ views: 530000,
+ uploadDate: '15일 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_n_ug3Fhi-kvdbMpKg6wCdKTWbfs7RGRPpWnbVqIVOqjg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '메타 출신 매니저가 바라본 한국과 실리콘밸리 개발 문화의 차이.'
+},
+'54': {
+ youtubeId: 'CcWIwaCy5dE',
+ title: '50세 한국인의 실리콘밸리 도전기',
+ channel: 'EO Korea',
+ views: 720000,
+ uploadDate: '1일 전',
+ profileImg : 'https://yt3.googleusercontent.com/3Wu4J_3hwOm0ApDrIDbTon64jfXlEqS-eU4vDWNF9ULIsuAd-b9OGaR4Ff6l7vHGUqX9WV8dxg=s160-c-k-c0x00ffffff-no-rj' ,
+ description: '50세에 구글 입사에 도전한 한국인의 이야기, 경력 단절 후 재입사의 배경과 현실.'
+},
+'55': {
+ youtubeId: '7olPX1lS7NQ',
+ title: '이스트소프트 신규 AI 검색 엔진 분석',
+ channel: 'EST',
+ views: 150000,
+ uploadDate: '7개월 전',
+ profileImg : 'https://yt3.googleusercontent.com/DTlNqq8P3QPYDLmtLBHqCA5ko6XqMTrE2YW3pIekFYxyNy4BPdSemAngpTlDDBmi-VVjpj5kHKE=s160-c-k-c0x00ffffff-no-rj' ,
+ description: '정확도는 높이고 헛소리는 줄인, 이스트소프트의 새로운 AI 검색 기술 분석.'
+},
+'56': {
+ youtubeId: 'Ux7p_L2U7dM',
+ title: '어릴적 우리의 꿈을 해적으로 바꾼 원피스 코어태-우리의 꿈',
+ channel: '원피스',
+ views: 3300000,
+ uploadDate: '1년 전',
+ profileImg : '' ,
+ description: '우연히 들여왔는데 다들 고개를 끄덕인 그 장면, “세상은 꿈꾸는 자의 것이다.”'
+},
+'57': {
+ youtubeId: '4LCjdHjRMdM',
+ title: '실력있는 직원보다 중요한 ‘이것’',
+ channel: '가인지TV',
+ views: 1330000,
+ uploadDate: '2개월 전',
+ profileImg : 'https://yt3.ggpht.com/1OnvQ05N30R5TJctZq0gzM56qBAxGxur7Xb1ptbmAeg7hLTWQfwXVVP0aOMhkapp05wCd_Nc=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '우리 직원은 아마추어처럼 일하고 있지는 않은가? 실력 외에 정말 중요한 조직의 요소를 짚어봅니다.'
+},
+'58': {
+ youtubeId: 'BJffAD5Ga-U',
+ title: '직원이 실수 했을 때 절대 하면 안되는 것',
+ channel: '가인지TV',
+ views: 130000,
+ uploadDate: '12일 전',
+ profileImg : 'https://yt3.ggpht.com/1OnvQ05N30R5TJctZq0gzM56qBAxGxur7Xb1ptbmAeg7hLTWQfwXVVP0aOMhkapp05wCd_Nc=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '실수한 직원을 대할 때 리더가 반드시 피해야 할 행동은 무엇일까? 조직 문화를 망치는 지점.'
+},
+'59': {
+ youtubeId: 'dFesH3lCO1k',
+ title: '실리콘밸리에서 혼자 잘하는 사람이 인정 못 받는 이유',
+ channel: 'YTN',
+ views: 530000,
+ uploadDate: '2년 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_n_ug3Fhi-kvdbMpKg6wCdKTWbfs7RGRPpWnbVqIVOqjg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '인스타그램 수석 엔지니어가 말하는 실리콘밸리의 협업 문화와 개인주의의 경계.'
+},
+'60': {
+ youtubeId: 'HBrJBeH5YmA',
+ title: '도망치세요! 직접 해결하려 하지 마세요! 버티면 결국 나만 손해일 수도...',
+ channel: '내 친구는 인사팀',
+ views: 230000,
+ uploadDate: '14일 전',
+ profileImg : 'https://yt3.googleusercontent.com/yrB3gaZ9L_v7n6B2L7orvaR98CM1Ud6jFN1D-2s09lTkuQduBkzvsn17r4ZLG7myKkLW4nqq=s160-c-k-c0x00ffffff-no-rj' ,
+ description: '문제 동료를 직접 해결하려고 들면 손해 볼 수 있다? 현명한 대처법을 알려드립니다.'
+},
+'61': {
+ youtubeId: 'czaIXR0dYQM',
+ title: '압도적으로 팔릴 수밖에 없는 세일즈 기술 | 한성자동차 문미애 이사',
+ channel: '한성자동차',
+ views: 1030000,
+ uploadDate: '7일 전',
+ profileImg : 'https://yt3.ggpht.com/BEYVgvw-VywLqFpCmNtToYrCfH7OfRL8jo1I27Vz8ZTVmMl5K3RErUmfRR0v8WpfVWzBBmj0mQ=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '세일즈에서 반드시 필요한 실전 기술, 문미애 이사가 직접 말하는 판매 비결.'
+},
+'62': {
+ youtubeId: '8zzNBLj_FPM',
+ title: '[손석희의 질문들] 손석희를 놀라게 한 최재천의 이야기?',
+ channel: '손석희의 질문들',
+ views: 1330000,
+ uploadDate: '10일 전',
+ profileImg : 'https://yt3.ggpht.com/iWdVWGvxd7gDmSygI16XZB22DwnDgh2IR0SOGXnClj9NrpRPR2nxI7gj24jtZSKwN6HxkOHPeQ=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '최재천 교수와의 대화에서 손석희가 놀란 순간은 무엇이었나? 인간과 자연, 공존의 철학을 나눈 이야기.'
+},
+'63': {
+ youtubeId: 'bn9nhe7w9xc',
+ title: '한국인이 구글에서 승진을 못하는 이유',
+ channel: '지식인사이드',
+ views: 230000,
+ uploadDate: '1년 전',
+ profileImg : 'https://yt3.ggpht.com/Gw2zuRWuMBkEsp6A7DmJXhhmAKB2zp3dCjtI1Ob03rmRylRGOcXe-RJMK4m0SwUuFWKz7J2s=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '구글 인사담당자가 말하는 한국인의 커리어 한계? 아무리 똑똑해도 승진이 어려운 진짜 이유를 분석합니다.'
+},
+'64': {
+ youtubeId: '7olPX1lS7NQ',
+ title: '의외로 많이 당한다는 가스라이팅 수법',
+ channel: 'EST',
+ views: 150000,
+ uploadDate: '7개월 전',
+ profileImg : 'https://yt3.ggpht.com/HKghNHb-PCAaTzdoLGR1bY4x_JoWPsb9JLVSxF4VAun0-B1eraIHNTPymZyqw6NFT_es4K8X=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '심리학자가 분석한 가스라이팅의 흔한 패턴들. “이런 말”을 들으면 무조건 조심하세요!'
+},
+'65': {
+ youtubeId: 'OjJf77CteT8',
+ title: '진짜 성격은 얼굴에 드러납니다',
+ channel: 'EO Korea',
+ views: 120000,
+ uploadDate: '21일 전',
+ profileImg : 'https://yt3.googleusercontent.com/DTlNqq8P3QPYDLmtLBHqCA5ko6XqMTrE2YW3pIekFYxyNy4BPdSemAngpTlDDBmi-VVjpj5kHKE=s160-c-k-c0x00ffffff-no-rj' ,
+ description: '김경일 교수의 관찰 심리학 특강. 성격은 말이 아닌 얼굴과 표정에 나타난다?'
+},
+'66': {
+ youtubeId: 'T1Yggs0hS70',
+ title: '14년 차 개발자가 밝히는 억대 연봉과 AI 위기의 진실',
+ channel: '내 친구는 인사팀',
+ views: 125000,
+ uploadDate: '15일 전',
+ profileImg : 'https://yt3.ggpht.com/yrB3gaZ9L_v7n6B2L7orvaR98CM1Ud6jFN1D-2s09lTkuQduBkzvsn17r4ZLG7myKkLW4nqq=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '네이버·배민 출신 개발자의 현실 토크! 연봉, 이직, AI로 인한 변화까지 솔직하게 공유합니다.'
+},
+'67': {
+ youtubeId: '1appWVh4-zs',
+ title: '사람을 만나면 밥부터 먹고보세요',
+ channel: 'EST',
+ views: 130000,
+ uploadDate: '1개월 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_n_ug3Fhi-kvdbMpKg6wCdKTWbfs7RGRPpWnbVqIVOqjg=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '유시민 작가가 말하는 인간관계의 핵심. 밥이라는 행위에 숨겨진 심리학적 의미는?'
+},
+'68': {
+ youtubeId: 'tevprEdieeU',
+ title: '세계를 빛낸 대한민국 고딩해커, 이 소식에 우리가 관심 갖는 이유',
+ channel: '크랩 kLAB',
+ views: 270000,
+ uploadDate: '5일 전',
+ profileImg : 'https://yt3.googleusercontent.com/DTlNqq8P3QPYDLmtLBHqCA5ko6XqMTrE2YW3pIekFYxyNy4BPdSemAngpTlDDBmi-VVjpj5kHKE=s160-c-k-c0x00ffffff-no-rj' ,
+ description: '아랍에미리트(UAE) 두바이에서 지난달 열린 세계 해킹방어대회에서 한국의 고등학생이 우승을 차지했습니다. 올해로 5회를 맞는 해킹방어대회는 지난해까지 국내에서 열려왔는데, 올해 두바이 왕실 등이 후원에 나서면서 세계 대회로 열린 것인데요.  그래서 크랩이 해당 대회에서 우승한 학생을 만나 우승소감 및 해킹 보안이 어떤 것인지, 그리고 앞으로 어떤 일을 하고 싶은지에 대해 들어보았습니다.'
+},
+'69': {
+ youtubeId: '_Z81cn7AUVs',
+ title: '눈 이렇게 하면 시력 확 밝아집니다',
+ channel: '가인지TV',
+ views: 230000,
+ uploadDate: '6년 전',
+ profileImg : 'https://yt3.ggpht.com/1OnvQ05N30R5TJctZq0gzM56qBAxGxur7Xb1ptbmAeg7hLTWQfwXVVP0aOMhkapp05wCd_Nc=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '시력 개선 방법에 대한 안과 교수의 설명 영상입니다.'
+},
+'70': {
+ youtubeId: 'wxtxSV0eQvk',
+ title: '가격은 같은데 10배 더 맛있는 고기',
+ channel: '지식인사이드',
+ views: 130000,
+ uploadDate: '7일 전',
+ profileImg : 'https://yt3.ggpht.com/Gw2zuRWuMBkEsp6A7DmJXhhmAKB2zp3dCjtI1Ob03rmRylRGOcXe-RJMK4m0SwUuFWKz7J2s=s176-c-k-c0x00ffffff-no-rj-mo',
+ description: '고기 부위와 조리법에 따라 왜 맛 차이가 큰지 분석합니다.'
+},
+'71': {
+ youtubeId: 'n03QDI-ByVg',
+ title: 'AI와 대결 후기',
+ channel: '지식인사이드',
+ views: 560000,
+ uploadDate: '23일 전',
+ profileImg : 'https://yt3.ggpht.com/Gw2zuRWuMBkEsp6A7DmJXhhmAKB2zp3dCjtI1Ob03rmRylRGOcXe-RJMK4m0SwUuFWKz7J2s=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: 'AI vs 인간의 대결 결과와 느낀 점을 정리한 영상.'
+},
+'72': {
+ youtubeId: '6QT6SMPwFXk',
+ title: '실리콘밸리 30년차 개발자, 단계별 커리어 조언',
+ channel: '조코딩',
+ views: 666000,
+ uploadDate: '1년 전',
+ profileImg : 'https://yt3.ggpht.com/6gJoxwN9IQ3SlQIo1SibzhmwNLfxhX3t15zfQAGMxmV3Fi7aALzNayf2CzqhL5U6c2f4123G=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '30년차 실리콘밸리 개발자가 전하는 커리어 성장 전략.',
+ subscribers : '구독자 15만 명'
+},
+'73': {
+ youtubeId: 'iT3X2vMvqHE',
+ title: '이직만 10번…구글 수석 디자이너의 커리어 조언',
+ channel: 'EQ KOREA',
+ views: 210000,
+ uploadDate: '2년 전',
+ profileImg : 'https://yt3.googleusercontent.com/DTlNqq8P3QPYDLmtLBHqCA5ko6XqMTrE2YW3pIekFYxyNy4BPdSemAngpTlDDBmi-VVjpj5kHKE=s160-c-k-c0x00ffffff-no-rj' ,
+ description: '수석 디자이너가 말하는 커리어 전환과 경험의 가치.' ,
+ subscribers : '구독자 15만 명'
+},
+'74': {
+ youtubeId: 'HcTG64Nxj5A',
+ title: '똑똑하게 이직하는 기준',
+ channel: '퇴사한 이형',
+ views: 2600000,
+ uploadDate: '13시간 전',
+ profileImg : 'https://yt3.googleusercontent.com/ytc/AIdro_lDpgRioU6o64rO-vPjp7kglrygc3t8zudwKLfZsb4c=s176-c-k-c0x00ffffff-no-rj-mo' ,
+ description: '이직 시 고려해야 할 핵심 요소들을 정리한 영상 내용.' ,
+ subscribers : '구독자 15만 명'
+
+}
+ };
+
+ if (!videoId || !videoData[videoId]) {
+   alert('잘못된 영상 ID입니다.');
+   // 필요 시 홈으로 이동
+   // window.location.href = 'index.html';
+ } else {
+   const video = videoData[videoId];
+
+   // iframe src 설정 (유튜브 임베드)
+   document.getElementById('videoIframe').src = `https://www.youtube.com/embed/${video.youtubeId}`;
+
+   // 텍스트 출력
+   document.getElementById('videoTitle').textContent = video.title;
+   document.getElementById('videoChannel').textContent = video.channel;
+   document.getElementById('videoMeta').textContent = `${video.views.toLocaleString()}회 조회 • ${video.uploadDate}`;
+   document.getElementById('videoDescription').textContent = video.description;
+   //document.getElementById('views').textContent = video.views;
+   document.getElementById('profileImg').src = video.profileImg;
+   document.getElementById('subscribers').textContent = video.subscribers;
+
+ }
+
+
+function show_Menu() {
+ const menu = document.getElementById("menu1");
+
+ // 현재 상태가 'block'이면 'none'으로, 그 외는 'block'으로 토글
+ if (menu.style.display === "block") {
+   menu.style.display = "none"; // 미노출
+ } else {
+   menu.style.display = "block"; // 노출
+ }
+}
+
+</script>
+</body>
+</html>
