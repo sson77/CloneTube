@@ -1,0 +1,593 @@
+/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * The use of `table` rather than `block` is only necessary if using
+ * `::before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+body {
+  background-color: #121212;
+  color: white;
+}
+
+.sidebar {
+  background-color: #181818;
+  height: 100vh;
+  padding-top: 20px;
+}
+
+.sidebar a {
+  color: white;
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  background-color: #383838;
+}
+
+.video-thumbnail {
+  background-color: #212121;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.video-title {
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.bg-img {
+  background-color: #000; /* 배경 색 */
+  padding: 1px; /* 배경이 보이도록 여백 줌 */
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1a73e8;
+  text-decoration: underline;
+}
+
+.bottom-bar {
+  background-color: #1e1e1e;
+  color: rgb(153, 142, 142);
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+.navbar-custom {
+  background-color: #121212;
+}
+
+.search-bar {
+  background-color: #222;
+  border: none;
+  color: white;
+}
+
+.search-bar::placeholder {
+  color: #aaa;
+}
+
+.btn-icon {
+  background-color: #333;
+  border: none;
+  color: white;
+  margin-left: 5px;
+}
+
+.profile-circle {
+  background-color: #f4511e;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.video-thumbnail {
+  position: relative;
+  overflow: hidden; /* 이미지 확대 시 넘치는 부분 숨김 처리 잘 되어있음 */
+  border-radius: 8px; /* 모서리 둥글게 처리, 깔끔함 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 애니메이션 */
+  cursor: pointer; /* 클릭 가능한 UI임을 암시 */
+}
+
+.video-thumbnail:hover {
+  transform: translateY(-8px) scale(1.05); /* 살짝 위로 떠오르면서 확대 */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* 자연스러운 그림자 */
+}
+
+.video-thumbnail img.bg-img {
+  width: 100%;
+  height: auto;
+  display: block; /* 인라인 간격 문제 방지 */
+  transition: transform 0.3s ease; /* 이미지 확대 부드럽게 */
+}
+
+.video-thumbnail:hover img.bg-img {
+  transform: scale(1.1); /* 호버 시 이미지 확대 */
+}
+
+.dropdown-menu {
+  min-width: 250px;
+}
+
+.dropdown-menu-dark .dropdown-item:hover {
+  background-color: #333;
+}
+body {
+      background-color: #111;
+      color: white;
+      margin: 15px;
+
+    }
+    .video-section iframe {
+      width: 100%;
+      height: 480px;
+      border: none;
+    }
+    .sidebar .card {
+      background-color: #222;
+      color: white;
+      margin-bottom: 10px;
+    }
+    .comment-box {
+      background-color: #1a1a1a;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .navbar {
+      background-color: #000;
+    }
+   .channel-profile {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .channel-name {
+      font-weight: 600;
+    }
+
+    .subscribe-btn {
+      background-color: #0f0f0f;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-weight: 500;
+    }
+
+    .subscribe-btn:hover {
+      background-color: #272727;
+    }
+
+    .verified-badge {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .subscriber-count {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    .channel-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .channel-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .channel-profile {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .channel-meta {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.95rem;
+    }
+
+    .channel-meta .name {
+      font-weight: 600;
+    }
+
+    .channel-meta .subscribers {
+      color: #aaa;
+      font-size: 0.85rem;
+    }
+
+    .btn-subscribe {
+      background-color: #0f0f0f;
+      color: #fff;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 999px;
+    }
+
+    .btn-subscribe:hover {
+      background-color: #222;
+    }
+
+    .btn-group-small .btn {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .product {
+      background-color: #1e1e1e;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      gap: 12px;
+      margin: 10px 0;
+      align-items: center;
+    }
+
+    .product img {
+      width: 100px;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .product-info {
+      flex-grow: 1;
+    }
+
+    .timestamp {
+      display: block;
+      margin: 6px 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .footer {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 75%; /* 4:3 비율 높이 증가 */
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+       /* 사이드 메뉴 기본 상태 */
+       #sidebar {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 250px;
+         height: 100%;
+         background-color: #212529;
+         color: white;
+         transform: translateX(-100%);
+         transition: transform 0.3s ease-in-out;
+         z-index: 9999;
+         padding: 1rem;
+       }
+
+       /* 열렸을 때 상태 */
+       #sidebar.active {
+         transform: translateX(0);
+       }
+
+       #menuToggleBtn {
+         margin: 1rem;
+       }
+
+       .channel-icon {
+         width: 24px;
+         height: 24px;
+         border-radius: 50%;  /* 동그란 아이콘 형태 */
+         vertical-align: middle;
+         margin-right: 6px;
+       }
+
+      /* 메뉴 항목 기본 스타일 */
+      .dropdown-menu a {
+        display: flex !important;
+        align-items: center !important;
+        padding: 10px 20px !important;
+        color: #ccc !important;
+        font-size: 14px !important;
+        text-decoration: none !important;
+        gap: 12px !important; /* 아이콘과 텍스트 사이 간격 */
+        transition: background-color 0.2s ease-in-out !important;
+
+        /* 아래가 각 항목 간 간격 */
+        margin-bottom: 8px !important;
+      }
+
+      /* 마지막 항목은 아래 마진 제거 */
+      .dropdown-menu a:last-child {
+        margin-bottom: 0 !important;
+      }
