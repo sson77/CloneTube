@@ -563,3 +563,34 @@ body {
        #menuToggleBtn {
          margin: 1rem;
        }
+
+
+      /* 메뉴 항목 기본 스타일 */
+      .dropdown-menu a {
+        display: flex !important;
+        align-items: center !important;
+        padding: 10px 20px !important;
+        color: #ccc !important;
+        font-size: 14px !important;
+        text-decoration: none !important;
+        gap: 12px !important; /* 아이콘과 텍스트 사이 간격 */
+        transition: background-color 0.2s ease-in-out !important;
+
+        /* 아래가 각 항목 간 간격 */
+        margin-bottom: 8px !important;
+      }
+
+      /* 마지막 항목은 아래 마진 제거 */
+      .dropdown-menu a:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .channel-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;  /* 동그란 아이콘 형태 */
+        vertical-align: middle;
+        margin-right: 6px;
+      }
+
+
