@@ -91,7 +91,14 @@
   <section>
     <h2>💡 주요 기능</h2>
     <ul>
-      <li>문서 작성 중 입니다.✍️</li>
+      <li>1. 유튜브 영상 클론 및 인터랙션 구현</li>
+      <li>2. 유튜브 키워드 검색 기능  </li> 
+      <li>3. 댓글 기능 구현 </li>
+      <li>4. 좋아요 +1, 싫어요-1 구현 </li>     
+      <li>5. Bootstrap5.0 활용한 반응형 웹 구현 </li>
+      <li>6. 메인, 상세, 구독, 재생목록 페이지 구현 </li>
+      <li>7. 상단 HEADER , SIDER, PROFILE MENU 구현 </li>
+      <li>8. 상단 햄버거 버튼 메뉴 노출, 미노출 구현 </li>        
     </ul>
   </section><br/>
 
@@ -144,3 +151,4 @@ git clone https://github.com/sson77/CloneTube.git
 
 </body>
 </html>
+
