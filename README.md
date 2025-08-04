@@ -11,10 +11,13 @@
     <li>GitHub Pages 배포 : <a href="https://sson77.github.io/CloneTube/" target="_blank">  https://sson77.github.io/CloneTube/</a> </li> <br/>
     <li>프로젝트 명: YouTube 클론 웹 애플리케이션 </li> 
     <li>프로젝트 개요: <br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 본 프로젝트는 YouTube의 주요 기능을 클론하여, 영상 목록 조회, 영상 상세 보기, 사용자 인터랙션(댓글, 좋아요/싫어요),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;반응형 UI 등을 구현한 웹 애플리케이션입니다. <br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;실제 YouTube의 UI/UX를 참고하여 HTML, CSS, JavaScript, Bootstrap 등의 기술을 활용하였으며,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;유튜브 임베드 기능을 통해 실제 영상 재생 환경을 구성하였습니다.<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 3단계에 걸쳐 기능을 점진적으로 확장하며 클론 프로젝트를 완성하였고, GitHub에 버전 관리 및 배포를 함께 진행했습니다. </li>  <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 본 프로젝트는 YouTube의 주요 기능을 클론하여, 영상 목록 조회, 영상 상세 보기,<br/> 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;사용자 인터랙션(댓글, 좋아요/싫어요),<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;반응형 UI 등을 구현한 웹 애플리케이션입니다.<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;실제 YouTube의 UI/UX를 참고하여 HTML, CSS, JavaScript, Bootstrap 등의 기술을 활용하였으며,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;유튜브 임베드 기능을 통해 실제 영상 재생 환경을 구성하였습니다.<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 3단계에 걸쳐 기능을 점진적으로 확장하며 클론 프로젝트를 완성하였고,<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GitHub에 버전 관리 및 배포를 함께 진행했습니다.</li><br/>
     <li>주요 구현 내용: <br/>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 메인 페이지 UI 구성 (네비게이션 바, 사이드바, 썸네일 카드 등)<br/>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 메인 페이지 UI 구성 (네비게이션 바, 사이드바, 썸네일 카드 등)<br/>
@@ -167,6 +170,7 @@ git clone https://github.com/sson77/CloneTube.git
 
 </body>
 </html>
+
 
 
 
