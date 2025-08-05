@@ -32,9 +32,9 @@
   <section>
     <h2>📌주제</h2>
     <p>📺 유튜브 영상 클론 및 인터랙션 구현</p>
-    <p><a href="https://www.youtube.com/watch?v=BvZvuj72yzU"><img src="https://img.youtube.com/vi/BvZvuj72yzU/0.jpg" style="width:60%"></a></p>
-    <p><a href="https://www.youtube.com/watch?v=6Z_SUUobEvs"><img src="https://img.youtube.com/vi/6Z_SUUobEvs/0.jpg" style="width:60%"></a></p><br/>
-    <p><a href="https://www.youtube.com/watch?v=DLqPZUur3cA"><img src="https://img.youtube.com/vi/DLqPZUur3cA/0.jpg" style="width:60%"></a></p> <br/>
+    <p><a href="https://www.youtube.com/watch?v=6Z_SUUobEvs"><img src="https://img.youtube.com/vi/6Z_SUUobEvs/0.jpg" style="width:60%"></a>시연영상_01(음성포함)</p><br/>
+    <p><a href="https://www.youtube.com/watch?v=DLqPZUur3cA"><img src="https://img.youtube.com/vi/DLqPZUur3cA/0.jpg" style="width:60%"></a>시연영상_02(음성포함)</p><br/>
+    <p><a href="https://www.youtube.com/watch?v=BvZvuj72yzU"><img src="https://img.youtube.com/vi/BvZvuj72yzU/0.jpg" style="width:60%"></a>시연영상</p> 
   </section><br/>
   <section>
     <h2>📌요구사항</h2>
@@ -221,12 +221,13 @@ git clone https://github.com/sson77/CloneTube.git
   <section>
     <h2>📁 프로젝트 결과보고서</h2>
     <ul>
-      <li><a href="https://github.com/sson77/CloneTube/tree/main/docs">📁프로젝트 결과보고서 링크</a></li>
-     <li><a href="https://docs.google.com/presentation/d/1dxxUZckGd5elEyiXbQbkL5EyzqoD3-kA/edit?usp=sharing&ouid=116392357837924649713&rtpof=true&sd=true">📁프로젝트 결과보고서 웹문서뷰 보기</a></li> 
+     <li><a href="https://docs.google.com/presentation/d/1dxxUZckGd5elEyiXbQbkL5EyzqoD3-kA/edit?usp=sharing&ouid=116392357837924649713&rtpof=true&sd=true">📁프로젝트 결과보고서 웹 문서뷰 보기</a></li> 
+      <li><a href="https://github.com/sson77/CloneTube/tree/main/docs">📁프로젝트 결과보고서 링크</a></li> 
     </ul>
   </section><br/>
 </body>
 </html>
+
 
 
 
