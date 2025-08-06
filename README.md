@@ -32,9 +32,12 @@
   <section>
     <h2>📌주제</h2>
     <p>📺 유튜브 영상 클론 및 인터랙션 구현</p>
-    <p><a href="https://www.youtube.com/watch?v=6Z_SUUobEvs"><img src="https://img.youtube.com/vi/6Z_SUUobEvs/0.jpg" style="width:60%"></a>시연영상_01(음성포함)</p><br/>
-    <p><a href="https://www.youtube.com/watch?v=DLqPZUur3cA"><img src="https://img.youtube.com/vi/DLqPZUur3cA/0.jpg" style="width:60%"></a>시연영상_02(음성포함)</p><br/>
-    <p><a href="https://www.youtube.com/watch?v=BvZvuj72yzU"><img src="https://img.youtube.com/vi/BvZvuj72yzU/0.jpg" style="width:60%"></a>시연영상</p> 
+    <p><a href="https://www.youtube.com/watch?v=6Z_SUUobEvs"><img src="https://img.youtube.com/vi/6Z_SUUobEvs/0.jpg" style="width:60%"></a><br/>
+    시연영상_01(음성포함)</p><br/>
+    <p><a href="https://www.youtube.com/watch?v=DLqPZUur3cA"><img src="https://img.youtube.com/vi/DLqPZUur3cA/0.jpg" style="width:60%"></a><br/>
+    시연영상_02(음성포함)</p><br/>
+    <p><a href="https://www.youtube.com/watch?v=BvZvuj72yzU"><img src="https://img.youtube.com/vi/BvZvuj72yzU/0.jpg" style="width:60%"></a><br/>
+    시연영상</p>
   </section><br/>
   <section>
     <h2>📌요구사항</h2>
@@ -227,6 +230,7 @@ git clone https://github.com/sson77/CloneTube.git
   </section><br/>
 </body>
 </html>
+
 
 
 
