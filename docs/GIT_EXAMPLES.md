@@ -277,7 +277,7 @@ git checkout recovered-branch
 | 특정 커밋 되돌리기 | `git revert <커밋해시>` |
 | 특정 커밋으로 이동 | `git reset --hard <커밋해시>` |
 | 작업 기록 보기 | `git reflog` |
-| 삭제된 커밋 찾기 | `git reflog \| grep <키워드>` |
+| 삭제된 커밋 찾기 | `git reflog | grep <키워드>` |
 
 ---
 

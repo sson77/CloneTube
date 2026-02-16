@@ -366,7 +366,7 @@ git stash pop
 ## 질문이 있으신가요?
 
 - 💬 [Discussions](https://github.com/sson77/CloneTube/discussions)에서 질문하기
-- 📧 이메일: [이메일 주소]
+- 📧 [Issues](https://github.com/sson77/CloneTube/issues)에서 문의하기
 - 📚 [Git 커밋 가이드](docs/GIT_GUIDE.md) 참고
 
 ---
