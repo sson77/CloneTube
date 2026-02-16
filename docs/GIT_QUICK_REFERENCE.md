@@ -102,4 +102,7 @@ git reset --hard HEAD@{1}  # 특정 시점으로 복구
 
 ---
 
-더 자세한 내용은 [Git 커밋 가이드](GIT_GUIDE.md)를 참조하세요.
+더 자세한 내용은 다음 문서를 참조하세요:
+- [Git 커밋 가이드 (상세)](GIT_GUIDE.md)
+- [Git 플로우차트](GIT_FLOWCHART.md)
+- [Git 실습 예제](GIT_EXAMPLES.md)

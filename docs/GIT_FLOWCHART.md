@@ -196,6 +196,7 @@ git merge origin/main
 
 - [Git 커밋 가이드 (상세)](GIT_GUIDE.md)
 - [Git 빠른 참조 카드](GIT_QUICK_REFERENCE.md)
+- [Git 실습 예제](GIT_EXAMPLES.md)
 - [기여 가이드](../CONTRIBUTING.md)
 
 ---

@@ -242,7 +242,7 @@ git stash apply stash@{0}
 2. **Reset보다 Revert**: 이미 push한 커밋은 `revert`로 되돌리세요
 3. **백업하기**: 중요한 작업 전에는 브랜치를 백업하세요
    ```bash
-   git branch backup-<날짜>
+   git branch backup-2024-02-16
    ```
 4. **커밋 전 확인**: `git status`와 `git diff`로 항상 확인하세요
 
