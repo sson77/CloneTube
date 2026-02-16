@@ -23,3 +23,18 @@ function search(event) {
  function show_Menu() {
     document.getElementById("menu1").style.display = "block";
   }
+
+function deleteVideo(button) {
+  // 버튼의 부모 요소를 찾아서 삭제
+  const videoCard = button.closest('.col');
+  if (videoCard) {
+    // 페이드아웃 효과를 위한 애니메이션
+    videoCard.style.transition = 'opacity 0.3s ease';
+    videoCard.style.opacity = '0';
+    
+    // 애니메이션 후 요소 제거
+    setTimeout(() => {
+      videoCard.remove();
+    }, 300);
+  }
+}
