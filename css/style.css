@@ -594,3 +594,12 @@ body {
       }
 
 
+      /* Video delete button styles */
+      .video-delete-btn {
+        z-index: 10;
+        opacity: 0.8;
+      }
+
+      .video-delete-btn:hover {
+        opacity: 1;
+      }

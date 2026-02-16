@@ -23,3 +23,15 @@ function search(event) {
  function show_Menu() {
     document.getElementById("menu1").style.display = "block";
   }
+
+function deleteVideo(button) {
+  const videoCard = button.closest('.col');
+  if (videoCard) {
+    videoCard.style.transition = 'opacity 0.3s ease';
+    videoCard.style.opacity = '0';
+    
+    setTimeout(() => {
+      videoCard.remove();
+    }, 300);
+  }
+}
