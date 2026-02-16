@@ -156,7 +156,8 @@ git clone https://github.com/sson77/CloneTube.git
     <h2>📖 Git 가이드</h2>
     <p>잘못 커밋했을 때 어떻게 해야 할지 모르시나요?</p>
     <ul>
-      <li><a href="docs/GIT_GUIDE.md">📚 Git 커밋 가이드</a> - 실수로 잘못 커밋했을 때 대처 방법</li>
+      <li><a href="docs/GIT_FLOWCHART.md">🎯 잘못 커밋했을 때 플로우차트</a> - 상황별 빠른 해결 가이드 (시작하기 좋음!)</li>
+      <li><a href="docs/GIT_GUIDE.md">📚 Git 커밋 가이드</a> - 실수로 잘못 커밋했을 때 대처 방법 (상세)</li>
       <li><a href="docs/GIT_QUICK_REFERENCE.md">🚨 Git 빠른 참조 카드</a> - 자주 사용하는 Git 명령어</li>
       <li><a href="CONTRIBUTING.md">🤝 기여 가이드</a> - 프로젝트 기여 방법 및 커밋 컨벤션</li>
     </ul>
