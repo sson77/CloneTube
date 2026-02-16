@@ -153,6 +153,14 @@ git clone https://github.com/sson77/CloneTube.git
   </section><br/>
 
   <section>
+    <h2>📖 Git 가이드</h2>
+    <p>잘못 커밋했을 때 어떻게 해야 할지 모르시나요?</p>
+    <ul>
+      <li><a href="docs/GIT_GUIDE.md">📚 Git 커밋 가이드</a> - 실수로 잘못 커밋했을 때 대처 방법</li>
+    </ul>
+  </section><br/>
+
+  <section>
     <h2>🏷 관련 태그</h2>
     <div class="tags">
       <span>#웹프로젝트</span><br/>
